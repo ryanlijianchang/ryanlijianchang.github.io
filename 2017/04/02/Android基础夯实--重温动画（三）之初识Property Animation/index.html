@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="vvVgSQUzPU">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
+    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
+    
+    <title>
+       Android基础夯实--重温动画（三）之初识Property Animation -  特雷西多士
+    </title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    
+      <link rel="icon" href="/images/favicon.ico">
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
+          </div>
+          <ul>
+            
+              <li><a href="/"> 首页 </a></li>
+            
+              <li><a href="/archives"> 归档 </a></li>
+            
+              <li><a href="/about"> 关于 </a></li>
+            
+              <li><a href="/atom.xml"> RSS </a></li>
+            
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search">
+            </li>
+          </ul>
+           
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、摘要</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-背景"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.1 背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-区别"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.2 区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-建议"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">1.3 建议</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、工作原理"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、工作原理</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、API概况"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、API概况</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、结语"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、结语</span></a></li></ol> 
+          
+        </div>
+      </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            Android基础夯实--重温动画（三）之初识Property Animation
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2017-04-01T16:00:00.000Z" itemprop="datePublished">
+            2017-04-02
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/动画/">动画</a><span class="post-tag-list-count">5</span></li></ul>
+        
+    </div>
+    
+    <div class="post-entry">
+        <p><em>每个人都有一定的理想，这种理想决定着他的努力和判断的方向。就在这个意义上，我从来不把安逸和快乐看作生活目的的本身——这种伦理基础，我叫它猪栏的理想。——爱因斯坦</em></p>
+<h1 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h1><p>Property Animation（属性动画）是一个非常强大的框架，它允许你让任何对象都实现动画效果。  因为不管一个对象是否出现屏幕中，你都可以随时去改变它的属性，而属性动画正是通过在某个时间点改变对象的属性实现动画效果的。Property Animation是在Android 3.0（API 11）之后推出的，以其具有高扩展性，解决了一些View Animation所不能解决的问题，所以，对于Android开发者来说，Property Animation是一个非常重要的知识点。</p>
+<p>本文主要对ValueAnimator做介绍，如果大家有兴趣，可以继续阅读本动画系列其他相关文章，作者也在不断更新完善相关内容，希望大家可以指出有误之处。</p>
+<h2 id="1-1-背景"><a href="#1-1-背景" class="headerlink" title="1.1 背景"></a>1.1 背景</h2><p>由于Tween Animation（补间动画）只能实现简单的四种的动画（alpha、scale、rotate、translate），要想实现比较复杂的动画就难以满足需求，而Frame Animation只是改变了View对象绘制的背景，而没有改变View对象本身。所以当我们想使用View Animation实现一些特殊的动画效果时，就比较困难了。例如，当我们想改变一个控件的背景颜色时，视图动画并不能实现；当我们想设置一个按钮在位置转换之后，仍然保持点击事件，视图动画也不能实现。在这个背景之下，属性动画应运而生。</p>
+<h2 id="1-2-区别"><a href="#1-2-区别" class="headerlink" title="1.2 区别"></a>1.2 区别</h2><p>说了这么多，那么视图动画和属性动画到底有什么区别呢？</p>
+<p>首先，在直观上，属性动画是区别于视图动画的：</p>
+<p><strong>(1) 时间不一样：</strong> 视图动画是从API LEVEL 1就引入了；而属性动画是从API LEVEL 11之后才引入。</p>
+<p><strong>(2) 名字不一样：</strong> 视图动画的Tween Animation命名为xxxAnimation、Frame Animation命名为AnimationDrawable；而属性动画，则命名为xxxAnimator。</p>
+<p><strong>(3) 包名不一样：</strong> 视图动画的Tween Animation在包android.view.animation下，而Property Animation在包android.animation中。 </p>
+<p>其次，从根本上，我们可以总结出视图动画和属性动画的两个主要区别：</p>
+<p>(1) <strong>视图动画只能改变View的位置或者视觉效果，并不能改变其属性</strong>。例如：使用Tween Animation对Button实现位移变换后位置改变，但是点击Button最后停留位置时，并不能响应点击事件。怎么理解呢，举个例子：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/jfkdjklfdjl.gif" alt="视图动画不能改变其属性"></p>
+<p>由上图可知，我们给TextView设置了点击事件，当我们分别使用Tween Animation和Property Animation移动TextView时，当使用Tween Animation位移TextView后，它的点击事件无效，当使用Property Animation移动TextView后，它的点击事件仍然有效。由此可见，视图动画并不能改变View的属性，而属性动画可以。</p>
+<p>(2) <strong>视图动画作用对象只限制为View，而属性动画作用对象不限为View，而是任何对象</strong>。例如：属性动画可以改变颜色值而视图动画做不到。同样举个例子：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/sdfd.gif" alt="视图动画只作用于View"></p>
+<p>由上图可以看到，当我们需要对一个对象的颜色值进行改变时，视图动画并不能实现这个效果，上图是通过属性动画来实现的，由此可以推测出，视图动画只能对View起作用，而属性动画作用的不只是View，而是对象。</p>
+<h2 id="1-3-建议"><a href="#1-3-建议" class="headerlink" title="1.3 建议"></a>1.3 建议</h2><p>虽然Property Animation的优点要多于View Animation，但是View Animaiton可以让我们花更少的时间和更少的代码去实现，所以如果View Animation已经足以满足我们的日常需要，那么我们就没必要使用Property Animation了，当然，如果我们都涉及到的话，同时使用View Animation和Property Animation可能是更有效的办法。</p>
+<p>如果你想了解更权威的解释，可以查看官方文档：<a href="https://developer.android.com/guide/topics/graphics/prop-animation.html#property-vs-view" target="_blank" rel="noopener">Property Animation</a>。</p>
+<p>本文主要对Property Animation做介绍，如果大家有兴趣，可以继续阅读本动画系列其他相关文章：</p>
+<p><a href="http://blog.csdn.net/ljcitworld/article/details/64464931" target="_blank" rel="noopener">Android基础夯实–重温动画（一）之Tween Animation</a></p>
+<p><a href="http://blog.csdn.net/ljcitworld/article/details/64919970" target="_blank" rel="noopener">Android基础夯实–重温动画（二）之Frame Animation</a></p>
+<h1 id="二、工作原理"><a href="#二、工作原理" class="headerlink" title="二、工作原理"></a>二、工作原理</h1><p>在讲述具体Property Animation相关API之前，我想先给大家讲一下属性动画是如何工作的。下面通过一个例子，这是<a href="https://developer.android.com/guide/topics/graphics/prop-animation.html" target="_blank" rel="noopener">Android开发指南</a>上面的一个例子，我觉得非常好理解，这里就搬过来了。</p>
+<p>首先，我们来看一个例子。如下图描述的是一个对象在它的x方向上进行水平运动的动画（规定右方向为正轴），当然我们可以对应成手机屏幕上的位置。这个动画的时长为40ms，对象在x正方向运动了40个像素，在每个10ms内，这个对象就往x正方向运动10个像素，在第40ms时，这个动画停在了x方向上的40像素，这是一个水平匀速运动的例子。</p>
+<p><img src="https://developer.android.com/images/animation/animation-linear.png" alt="图1 匀速水平运动示例"></p>
+<p>当然，我们也可以给动画定义一个具有不匀速插值器(Interpolation)，是它运动过程为不匀速。<br>如下图也是一个对象的运动过程，但是它并不是匀速运动，而是开始加速，在结束前减速。这个对象仍然是在40秒内运动了40个像素的距离，但是这个过程是不匀速的，它从开始到中间位置进行了加速运动，在中间位置到结束位置则进行了减速运动。</p>
+<p><img src="https://developer.android.com/images/animation/animation-nonlinear.png" alt="图2 非匀速水平运动示例"></p>
+<p>从上面两个例子可以看到，当我们想要一个对象实现一定的动画效果时，我们可以通过对应的图，还有相关的数据，和相关数据伴随时间的变化来描述该动画过程，但是我们的属性动画的内部是如何像我们这样来描述自身的变化过程的呢？以ValueAnimator为例，我们来看一下属性动画的重要组成部分，如下图所示。</p>
+<p><img src="https://developer.android.com/images/animation/valueanimator.png" alt="图3 属性动画的组成部分"></p>
+<p>ValueAnimator是属性动画最基础的一个类（我们暂且不深究它，反正它能帮助我们实现图2的先加速后减速的过程）。首先它在内部封装了非常重要的两个接口，第一个就是TimeInterpolator，另一个是TypeEvaluator。大家在心里必须先有个概念，在所有的属性动画里面，都拥有这两个东西。</p>
+<p>TimeInterpolator是什么呢？非常简单，就是我们上面所说的插值器，简单来说就是描述对象加速度的一个东西，再简单一点来说就是描述速度变化的一个东西。</p>
+<p>TypeEvaluator又是什么呢？大家可以理解为求值器，它是根据上面的插值器来计算对象属性具体值的这么一个东西。</p>
+<p>ValueAnimator在执行之前，首先会把时间分为百分数，由0~1，如上图动画过程为40ms，那么在10ms时，时间因子为0.25，在40ms时，时间因子为1。</p>
+<p>在计算完时间因子之后，ValueAnimator会调用TimeInterpolator来进行计算插值因子，在图2对应为速度，对应10ms时的速度我们知道会比20ms时的速度会低；而图1中，每一个时刻的速度都一样，所以TimeInterpolator大概是做这么一件事情。</p>
+<p>在TimeInterpolator计算完了之后，那么我们的TypeEvaluator就要起作用了，因为上图对应的是对象的位置变化，所以TypeEvaluator为IntEvaluator。这个TypeEvaluator主要是根据TimeInterpolator提供的插值因子(速度)，还有startPropertyValue(开始时间)和endPropertyValue(结束时间)，计算出某个时刻的属性值(位移)，如图2，假如t=10ms时刻，TimeInterpolator给我们返回值为0.15，那么这时在x方向上的位移为0.15 * (40 - 0) = 6。</p>
+<p>而这种计算过程在动画执行时间(duration)内是不断重复的，因为ValueAnimator有一个叫做AnimatorUpdateListener的监听器，它会跟踪动画的每一个时刻，所以我们可以在里面进行不断的计算，通过getAnimatedValue()来获取最新值，直到动画结束。</p>
+<p>一个属性动画的执行过程大概如上，相信大家已经对属性动画有了基本的了解，那么我们下面根据API来对属性动画进行详细讲解。</p>
+<h1 id="三、API概况"><a href="#三、API概况" class="headerlink" title="三、API概况"></a>三、API概况</h1><p>前面我们说到，属性动画机制所有相关的类都位于<a href="https://developer.android.com/reference/android/animation/package-summary.html" target="_blank" rel="noopener">android.animation</a>包之下，所以大家有需要可以到官方文档中进行查阅。下面几个表格是属性动画中常用的类，首先给大家大概介绍。</p>
+<p>表格1. Animators</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ValueAnimator</td>
+<td>针对值变化的Animator。</td>
+</tr>
+<tr>
+<td>ObjectAnimator</td>
+<td>针对Object变化的Animator。</td>
+</tr>
+<tr>
+<td>AnimatorSet</td>
+<td>运行一组Animator的集合。</td>
+</tr>
+</tbody>
+</table>
+<p>Animator类作为属性动画的基类，它是一个抽象类，它提供了实现动画的基本架构，但是我们不能直接使用它，因为它只是提供了最基本的的实现动画的方法，只有让它的子类继承它并进行相应扩展之后，我们才会使用它实现动画。在属性动画中，Animator包括了ValueAnimator、ObjectAnimator和AnimatorSet三个子类，我们分别来介绍一下这三个类。</p>
+<p>表格2.  Evaluators</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TypeEvaluator</td>
+<td>求值器接口，所有求值器必须实现该接口。</td>
+</tr>
+<tr>
+<td>IntEvaluator</td>
+<td>计算Int类型的求值器。</td>
+</tr>
+<tr>
+<td>FloatEvaluator</td>
+<td>计算Float类型的求值器。</td>
+</tr>
+<tr>
+<td>ArgbEvaluator</td>
+<td>计算颜色值类型的求值器。</td>
+</tr>
+</tbody>
+</table>
+<p>API中为我们提供了求值器的接口TypeEvaluator，当然还要它的实现类，例如IntEvaluator、FloatEvaluator、ArgbEvaluator、 IntArrayEvaluator、FloatArrayEvaluator等，它们都是根据fraction因子来计算出对应的属性值，当然我们也可以自定义自己的Evaluator。</p>
+<p>表格3. Interpolators</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TimeInterpolator</td>
+<td>Animator的插值器接口。</td>
+</tr>
+</tbody>
+</table>
+<p>TimeInterpolator作为属性动画的插值器接口，我们都知道在View Animation中有很多插值器，例如AccelerateDecelerateInterpolator(前后减速，中间加速)、AccelerateInterpolator（先慢后加速）等插值器，在属性动画中我们同样可以使用这些插值器，这里就不详细列出来了，不了解的同学可以看我之前的文章。当然，我们也可以自定义自己的Interpolator。</p>
+<h1 id="四、结语"><a href="#四、结语" class="headerlink" title="四、结语"></a>四、结语</h1><p>由于文章篇幅过长，不利于大家阅读，所以这篇文章首先给大家介绍属性动画这个概念，相信通过例子和文字的介绍，大家也已经对属性动画有所了解，那么接下来，我就会给大家详细讲解属性动画中的每一个知识点，当然，也会分多篇文章进行分析，如果你已经准备好，请继续阅读。</p>
+
+    </div>
+</div></div>
+    </div>
+    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
+    <img id="top" src="/images/up-circle.svg" alt="top">
+    
+  </body>
+</html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+    scroll.init()
+    siteSearch.init()
+  }
+</script>

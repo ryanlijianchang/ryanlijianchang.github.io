@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="vvVgSQUzPU">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
+    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
+    
+    <title>
+       Android基础夯实--重温动画（四）之属性动画 ValueAnimator详解 -  特雷西多士
+    </title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    
+      <link rel="icon" href="/images/favicon.ico">
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
+          </div>
+          <ul>
+            
+              <li><a href="/"> 首页 </a></li>
+            
+              <li><a href="/archives"> 归档 </a></li>
+            
+              <li><a href="/about"> 关于 </a></li>
+            
+              <li><a href="/atom.xml"> RSS </a></li>
+            
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search">
+            </li>
+          </ul>
+           
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、摘要</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、ValueAnimator"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、ValueAnimator</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-初识ValueAnimator"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 初识ValueAnimator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-深入了解ValueAnimator"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 深入了解ValueAnimator</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1构造函数"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">2.2.1构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2实例化对象的方法"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">2.2.2实例化对象的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ofArgb的使用"><span class="post-toc-number">2.2.2.1.</span> <span class="post-toc-text">ofArgb的使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ofObject的使用"><span class="post-toc-number">2.2.2.2.</span> <span class="post-toc-text">ofObject的使用</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3常用方法"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">2.2.3常用方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-4属性相关的方法"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">2.2.4属性相关的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-5监听器"><span class="post-toc-number">2.2.5.</span> <span class="post-toc-text">2.2.5监听器</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、Interpolator"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、Interpolator</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、Evaluator"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、Evaluator</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、-总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、 总结</span></a></li></ol> 
+          
+        </div>
+      </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            Android基础夯实--重温动画（四）之属性动画 ValueAnimator详解
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2017-04-09T16:00:00.000Z" itemprop="datePublished">
+            2017-04-10
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/动画/">动画</a><span class="post-tag-list-count">5</span></li></ul>
+        
+    </div>
+    
+    <div class="post-entry">
+        <p><em>宝剑锋从磨砺出,梅花香自苦寒来；千淘万漉虽辛苦,吹尽狂沙始到金； 长风破浪会有时,直挂云帆济沧海</em></p>
+<h1 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h1><p>Animator类作为属性动画的基类，它是一个抽象类，它提供了实现动画的基本架构，但是我们不能直接使用它，因为它只是提供了最基本的的实现动画的方法，只有让它的子类继承它并进行相应扩展之后，我们才会使用它实现动画。在属性动画中，Animator包括了ValueAnimator、ObjectAnimator和AnimatorSet三个子类，下面给大家详解ValueAnimator。</p>
+<p>如果你想了解更权威的解释，可以查看官方文档：<a href="https://developer.android.com/guide/topics/graphics/prop-animation.html#property-vs-view" target="_blank" rel="noopener">Property Animation</a>。</p>
+<p>本文主要对ValueAnimator做介绍，如果大家有兴趣，可以继续阅读本动画系列其他相关文章，作者也在不断更新完善相关内容，希望大家可以指出有误之处。</p>
+<h1 id="二、ValueAnimator"><a href="#二、ValueAnimator" class="headerlink" title="二、ValueAnimator"></a>二、ValueAnimator</h1><p>ValueAnimator，就是针对值的，也就是说ValueAnimator不会对控件进行任何操作，而是控制值的变化，然后我们监听这个值的变化过程，自己来控制控件的变化。什么意思呢？就像我们上面1.2中的例子，使用属性动画来控制TextView的位移，我们在初始化ValueAnimator时，会设置一个初始值和结束的值，例子我用这两个值来控制TextView在y轴上的位置，然后设置监听器，监听初始值变化到结束值的过程，在不断变化过程中，通过调用TextView的layout方法来不断更新TextView的位置，从而实现位移动画。</p>
+<h2 id="2-1-初识ValueAnimator"><a href="#2-1-初识ValueAnimator" class="headerlink" title="2.1 初识ValueAnimator"></a>2.1 初识ValueAnimator</h2><p>先上一个例子，实现图片的渐变过程：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/ezgif.com-video-to-gif%20%288%29.gif" alt="Alpha"></p>
+<p>我们都知道，在使用Tween Animation时是非常容易实现的，使用AlphaAnimation就可以实现，假如我们用属性动画的话，怎么实现呢？也是非常简单，布局代码就不贴了，看看使用ValueAnimator如何简单快捷地实现渐变动画。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 第一步，创建一个ValueAnimator。直接调用ValueAnimator.ofFloat来初始化，设置开始值和结束值</span><br><span class="line">final ValueAnimator alphaAnimator = ValueAnimator.ofFloat(1, 0);</span><br><span class="line">// 设置变化时长</span><br><span class="line">alphaAnimator.setDuration(1000);</span><br><span class="line">alphaAnimator.start();</span><br><span class="line"></span><br><span class="line">// 第二步，ValueAnimator设置监听器</span><br><span class="line">alphaAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationUpdate(ValueAnimator animation) &#123;</span><br><span class="line">        // 我们来检查一下这个方法会调用多少次</span><br><span class="line">        Log.i(&quot;TAG&quot;, &quot;curValue is &quot; + animation.getAnimatedValue());</span><br><span class="line">        // 在ValueAnimator变化的过程中更新控件的透明度</span><br><span class="line">        mBinding.image.setAlpha((float)alphaAnimator.getAnimatedValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>而我们在监听器内设置的Log的结果如下，我们可以看到onAnimationUpdate方法被不断地执行，输出值不断由我们设置的初始值变化到我们设置的结束值，所以这个值的变化过程正是我们需要让控件变化的过程。</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/1490325926%281%29.jpg" alt="Log结果"></p>
+<p>通过例子，我们可以大概总结使用ValueAnimator的两个主要过程：</p>
+<p><strong>(1). 初始化ValueAnimator，并设置初始值和结束值，还有动画的时间，然后start。</strong></p>
+<p><strong>(2). 给ValueAnimator设置监听器，通过getAnimatedValue()拿到变化值，然后我们手动更新控件的变化。</strong></p>
+<h2 id="2-2-深入了解ValueAnimator"><a href="#2-2-深入了解ValueAnimator" class="headerlink" title="2.2 深入了解ValueAnimator"></a>2.2 深入了解ValueAnimator</h2><p>由于ValueAnimator里面的方法确实不少，所以我们从上面的例子入手，从常用到不常用地讲解ValueAnimator的API，毕竟只要我们掌握了最常用的知识点之后，在我们需要时再去深入了解不常用的知识点，我觉得是个最有效率的学习方式。</p>
+<p>由上面的Demo代码的第一步我们可以看到，首先我们需要获取到一个ValueAnimator实例，按照我们的常规思维，我们都会通过new一个对象出来，以代码为例，我们是通过ofFloat方法来获取一个实例对象，那么我们的第一个疑问就是关于构造函数的，到底ValueAnimator有没有构造函数呢？如果有，为什么不通过构造函数来初始化呢？</p>
+<p>答案是有的，至于为什么，我们一探究竟。</p>
+<h3 id="2-2-1构造函数"><a href="#2-2-1构造函数" class="headerlink" title="2.2.1构造函数"></a>2.2.1构造函数</h3><ul>
+<li><strong>ValueAnimator()</strong>：创建一个ValueAnimator对象。</li>
+</ul>
+<p>ValueAnimator确实有它的构造函数，但是官方文档不建议我们直接使用它，因为在内部实现的时候才会用到它。之所以不需要用到它，是因为API给我们封装了一系列的的方法来获取实例对象。</p>
+<h3 id="2-2-2实例化对象的方法"><a href="#2-2-2实例化对象的方法" class="headerlink" title="2.2.2实例化对象的方法"></a>2.2.2实例化对象的方法</h3><ul>
+<li><strong>ValueAnimator ofInt (int… values)</strong>：返回一个int型变化的ValueAnimator。</li>
+<li><strong>ValueAnimator ofFloat (float… values)</strong>：返回一个float型变化的ValueAnimator。</li>
+<li><strong>ValueAnimator ofObject (TypeEvaluator evaluator, Object… values)</strong>：返回一个object型变化的ValueAnimator。</li>
+<li><strong>ValueAnimator ofArgb (int… values)</strong>：返回一个颜色值变化的ValueAnimator，API LEVEL 21引入。</li>
+<li><strong>ValueAnimator ofPropertyValuesHolder(PropertyValuesHolder… values)</strong>：返回一个PropertyValuesHolder型变化的ValueAnimator，在ObjectAnimator再详说。</li>
+</ul>
+<p>为什么我们需要通过这些方法来实例化对象呢？这是因为这些方法内部都对实例化对象进行了封装，我们以ofInt为例看一下它的内部实现，它内部其实还是通过new的方式来实例化，然后通过设置一些属性，然后返回这个ValueAnimator对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static ValueAnimator ofInt(int... values) &#123;</span><br><span class="line">    ValueAnimator anim = new ValueAnimator();</span><br><span class="line">    anim.setIntValues(values);</span><br><span class="line">    return anim;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ofArgb的使用"><a href="#ofArgb的使用" class="headerlink" title="ofArgb的使用"></a>ofArgb的使用</h4><p>在ValueAnimator中的ofArgb()可以帮助我们实现颜色的渐变效果，Google在API LEVEL 21之后增加了这个方法ofArgb()。通过这个方法我们更容易地实现颜色演变，通过ofArgb和ArgbEvaluator，我们可以轻松实现颜色渐变效果：</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/color.gif" alt="ofInt"></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ValueAnimator animator = ValueAnimator.ofInt(0xffff00ff, 0xffffff00, 0xffff00ff);</span><br><span class="line">animator.setEvaluator(new ArgbEvaluator());</span><br><span class="line">animator.setDuration(3000);</span><br><span class="line">animator.start();</span><br><span class="line">animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationUpdate(ValueAnimator animation) &#123;</span><br><span class="line">        mBinding.image.setBackgroundColor((Integer) animation.getAnimatedValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="ofObject的使用"><a href="#ofObject的使用" class="headerlink" title="ofObject的使用"></a>ofObject的使用</h4><p>ofObject方法是什么意思呢？我们都知道ofInt和ofFloat都是针对Int值和Float值的变化，但是，我们只能控制一个值的变化，但是当我们需要实现多值变化时，它们就不再满足我们的需求。例如我们需要同时实现位移、透明度变化等动画，这里需要设置两个属性值的变化，所以如果我们只有一个初始值是不行的，因为两个属性的初始值和结束值不一样，那么我们就可以将两个属性值封装到一个对象里面，那么初始值的object和结束值的object就可以包含两个属性不同的初始值和结束值了。</p>
+<p>下面是一个对ValueAnimator ofObject (TypeEvaluator evaluator, Object… values)方法具体使用的小Demo，实现图片的放大和渐变过程，先看效果图：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/sdfdasdfdas.gif" alt="image"></p>
+<p>首先我们看到ofObject的参数里面有一个TypeEvaluator和一个Object型可变参数，一般传入一个初始值和结束值，首先TypeEvaluator就是一个计算值的工具，API提供有现成的(下面详说)，也可以自己实现(这里为了给大家知道是个什么东西，就自己实现)；然后Obejct型，我们自己写一个类代替Obejct型。</p>
+<p>因为我们有两个动画，包括放大和透明度变化，我们定义一个叫ValueObject的类，里面就包含两个属性，代码也非常简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class ValueObject &#123;</span><br><span class="line">    float alphaValue;   //透明度的值</span><br><span class="line">    float scaleValue;   //伸缩变化的值</span><br><span class="line"></span><br><span class="line">    public ValueObject(float alphaValue, float scaleValue) &#123;</span><br><span class="line">        this.alphaValue = alphaValue;</span><br><span class="line">        this.scaleValue = scaleValue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，我们就需要自定义TypeEvaluator了，因为TypeEvaluator是一个接口，我们就写一个名叫MyEvaluator的类，它实现了TypeEvaluator的接口，传入我们的值类型为ValueObject，然后重写evaluate方法（TypeEvaluator接口只有这个方法需要实现）,代码也很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class MyEvaluator implements TypeEvaluator&lt;ValueObject&gt; &#123;</span><br><span class="line"></span><br><span class="line">    // 属性动画封装了一个因子fraction，我们设置动画时需要setDuration(xxxx)，例如时间为1000ms，那么当到达100ms时，fraction就为0.1</span><br><span class="line">    // fraction也就是当前时间占总时间的百分比，startValue和endValue就是我们传入的初始值和结束值</span><br><span class="line">    @Override</span><br><span class="line">    public ValueObject evaluate(float fraction, ValueObject startValue, ValueObject endValue) &#123;</span><br><span class="line">        // 计算某个时刻的alpha值和scale值。类似速度公式Vt = V0 + at</span><br><span class="line">        float nowAlphaValue = startValue.alphaValue + (endValue.alphaValue - startValue.alphaValue) * fraction;</span><br><span class="line">        float nowScaleValue = startValue.scaleValue + (endValue.scaleValue - startValue.scaleValue) * fraction;</span><br><span class="line">        return new ValueObject(nowAlphaValue, nowScaleValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这两个类我们都实现了，那么动画就很简单了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public void objectAnimation() &#123;</span><br><span class="line">    // 初始alpha值为1，scale值为1</span><br><span class="line">    ValueObject startObjectVal = new ValueObject(1f, 1f);</span><br><span class="line">    // 结束alpha值为0，scale值为2，相当于透明度变为0，尺寸放大到2倍</span><br><span class="line">    ValueObject endObjectVal = new ValueObject(0f, 2f);</span><br><span class="line">    MyEvaluator myEvaluator = new MyEvaluator();</span><br><span class="line"></span><br><span class="line">    final ValueAnimator animator = ValueAnimator.ofObject(myEvaluator, startObjectVal, endObjectVal);</span><br><span class="line">    animator.setDuration(3000);</span><br><span class="line">    animator.start();</span><br><span class="line"></span><br><span class="line">    animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onAnimationUpdate(ValueAnimator animation) &#123;</span><br><span class="line">            mBinding.image.setAlpha(((ValueObject) animation.getAnimatedValue()).alphaValue);</span><br><span class="line">            mBinding.image.setScaleType(ImageView.ScaleType.CENTER);</span><br><span class="line">            mBinding.image.setScaleX(((ValueObject) animation.getAnimatedValue()).scaleValue);</span><br><span class="line">            mBinding.image.setScaleY(((ValueObject) animation.getAnimatedValue()).scaleValue);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-3常用方法"><a href="#2-2-3常用方法" class="headerlink" title="2.2.3常用方法"></a>2.2.3常用方法</h3><ul>
+<li><strong>void addUpdateListener(ValueAnimator.AnimatorUpdateListener listener)</strong>：添加值变化监听器。主要监听值变化，实现动画。</li>
+<li><strong>void addUpdateListener(AnimatorUpdateListener listener)</strong>：添加动画状态监听器。重写动画开始、结束、取消、重复四个方法，监听不同状态。</li>
+<li><strong>void cancel ()</strong>: 取消动画。</li>
+<li><strong>void end ()</strong>：让动画到达最后一帧。</li>
+<li><strong>void start()</strong>：开始动画。</li>
+<li><strong>void pause()</strong>：暂停动画。</li>
+<li><strong>void resume()</strong>：继续动画。</li>
+<li><strong>void reverse ()</strong>：反向播放动画。</li>
+<li><strong>boolean isRunning()</strong>：是否在运行中。</li>
+<li><strong>boolean isStarted()</strong>：是否已经开始。</li>
+</ul>
+<h3 id="2-2-4属性相关的方法"><a href="#2-2-4属性相关的方法" class="headerlink" title="2.2.4属性相关的方法"></a>2.2.4属性相关的方法</h3><ul>
+<li><strong>void setCurrentFraction(float fraction)</strong>：设置当前时间因子。即时间到达的百分比。</li>
+<li><strong>float getAnimatedFraction()</strong>：获取当前时间因子。即时间到达的百分比。</li>
+<li><strong>void setCurrentPlayTime (long playTime)</strong>：设置当前的时间，取值为0-duration，单位毫秒。</li>
+<li><strong>long getCurrentPlayTime ()</strong>：获取当前的时间，单位毫秒。</li>
+<li><strong>ValueAnimator setDuration (long duration)</strong>：设置动画总时长，单位毫秒。</li>
+<li><strong>long getDuration ()</strong>：获取动画总时长，单位毫秒。</li>
+<li><strong>void setFrameDelay (long frameDelay)</strong>：设置每一帧之间间隔多少毫秒。</li>
+<li><strong>long getFrameDelay ()</strong>：获取每一帧之间间隔多少毫秒。</li>
+<li><strong>void setInterpolator (TimeInterpolator value)</strong>：设置动画的Interpolator，和View Animation的Interpolator通用。</li>
+<li><strong>TimeInterpolator getInterpolator ()</strong>：获取当前使用的插值器。</li>
+<li><strong>void setRepeatCount(int value)</strong>：设置重复次数。</li>
+<li><strong>int getRepeatCount()</strong>：获取重复次数。</li>
+<li><strong>void setRepeatMode(int value)</strong>：设置重复模式。有RESTART和REVERSE两种。</li>
+<li><strong>int getRepeatMode()</strong>：获取重复模式。</li>
+<li><strong>void setStartDelay(long startDelay)</strong>：设置开始前延迟毫秒数。</li>
+<li><p><strong>long getStartDelay()</strong>：获取开始前延迟毫秒数。</p>
+</li>
+<li><p><strong>void getAnimatedValue()</strong>：获取计算出来的当前属性值。</p>
+</li>
+<li><strong>getAnimatedValue(String propertyName)</strong>：获取计算出来的当前某个属性的值。</li>
+<li><strong>void setEvaluator(TypeEvaluator value)</strong>：设置求值器。</li>
+<li><strong>void setFloatValues(float… values)</strong>：设置Float型变化值，一般设置初始值和结束值，当然你也可以设置中间值，因为这是一个可变参数，长度可变。</li>
+<li><strong>void setIntValues(int… values)</strong>：设置Int型变化值，一般设置初始值和结束值，当然你也可以设置中间值，因为这是一个可变参数，长度可变。</li>
+<li><strong>setObjectValues(Object… values)</strong>：设置Object型变化值，一般设置初始值和结束值，当然你也可以设置中间值，因为这是一个可变参数，长度可变。</li>
+</ul>
+<h3 id="2-2-5监听器"><a href="#2-2-5监听器" class="headerlink" title="2.2.5监听器"></a>2.2.5监听器</h3><p>ValueAnimator有两个监听器，一个是AnimatorListener，一个AnimatorUpdateListener，通过代码我们查看它们的区别。 AnimatorListener主要是用来监听动画不同状态的监听器，从代码中我们可以看到它有四种不同的状态，当我们需要在不同状态中进行不同操作时，我们可以实现这个监听器。AnimatorUpdateListener是监听ValueAnimaitor的值不断变化的过程，通常使用这个监听器更新控件状态，实现动画过程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// AnimatorListener主要是用来监听动画不同状态的监听器</span><br><span class="line">animator.addListener(new Animator.AnimatorListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationStart(Animator animation) &#123;</span><br><span class="line">        Log.i(&quot;TAG&quot;, &quot;start&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationEnd(Animator animation) &#123;</span><br><span class="line">        Log.i(&quot;TAG&quot;, &quot;end&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationCancel(Animator animation) &#123;</span><br><span class="line">        Log.i(&quot;TAG&quot;, &quot;cancel&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationRepeat(Animator animation) &#123;</span><br><span class="line">        Log.i(&quot;TAG&quot;, &quot;repeat&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// AnimatorUpdateListener是监听ValueAnimaitor的值不断变化的过程</span><br><span class="line">animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationUpdate(ValueAnimator animation) &#123;</span><br><span class="line">        Log.i(&quot;TAG&quot;, &quot;curVal:&quot; + animation.getAnimatedValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="三、Interpolator"><a href="#三、Interpolator" class="headerlink" title="三、Interpolator"></a>三、Interpolator</h1><p>Interpolator，译名插值器，在我的意思里就是加速器，即这是一个改变我们动画速率的一个工具，可以实现加速、减速、匀速等这些特效。我们在<a href="http://blog.csdn.net/ljcitworld/article/details/64464931" target="_blank" rel="noopener">Android基础夯实–重温动画（一）之Tween Animation</a>第五部分讲了Android提供给我们使用的插值器，其实属性动画和视图动画是共用一套Interpolator的。在上面我们讲到，在属性动画中，我们可以通过setInterpolator (TimeInterpolator value)来给我们的动画增加一个插值器，传入参数是TimeInterpolator，通过查阅API，我们可以知道，TimeInterpolator是一个接口。我们再来看看它和我们常用的插值器的关系。</p>
+<p>我们常用的插值器，如AccelerateDecelerateInterpolator，AccelerateInterpolator， AnticipateInterpolator，AnticipateOvershootInterpolator等，它们的父类是BaseInterpolator。</p>
+<p>而BaseInterpolator是实现了Interpolator，而Interpolator则是继承TimeInterpolator接口。所以究其根源，我们常用的插值器和属性动画使用的TimeInterpolator其实是同一个东西。</p>
+<p>既然了解了它们是同一个东西，那么我们就需要了解怎么来实现一个自己的Interpolator了，一般我们只要继承BaseInterpolator，并实现它的getInterpolation(float input)方法就行了。</p>
+<p>举个例子，Android提供给我们的LinearInterpolator(这是一个匀速插值器)中，它的getInterpolation是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public float getInterpolation(float input) &#123;</span><br><span class="line">    return input;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先我们看一下参数input是什么，input表示当前动画的进度，它的取值范围是0-1，0代表起点，1代表终点，随着动画的播放，input从0到1逐渐变大；而返回值就是指当前的实际进度，听起来有点拗口，我们可以这么想，例如本来当input为0.1的时候，我们返回值如果大于0.1，那么就说明我们从0到0.1这个阶段是一个加速阶段，如果小于0.1，就说明这是一个减速过程。可以看到LinearInterpolator是直接把input返回，可以知道这是一个匀速的过程。</p>
+<p>再来看看AccelerateDecelerateInterpolator，这是开始和结束速度慢，中间部分加速。我们来看一下它的getInterpolation函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public float getInterpolation(float input) &#123;</span><br><span class="line">    return (float)(Math.cos((input + 1) * Math.PI) / 2.0f) + 0.5f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到这就是一个余弦公式，因为0-1这个时间内，刚开始和结束前这两个部分斜率是比较低的，所以速度会比较慢，但是中间部分斜率明显变大，所以中间部分呈现加速状态。</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/%E6%97%A0%E6%A0%87%E9%A2%98.png" alt="余弦公式"></p>
+<p>经过这两个例子，我们大概知道，当我们需要实现一个Interpolator时，只需要继承BaseInterpolator，并实现它的getInterpolation(float input)方法就行了，举个例子：实现一个0-0.25秒内到达3/4，0.25-0.75秒内从3/4退回1/4，最后0.25秒内从1/4达到终点，先上效果图让大家比较直观了解：</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/awww.gif" alt="Demo"></p>
+<p>所以我们可以很清楚的列出关系式：</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/YY%E5%9B%BE%E7%89%8720170327174154.jpg" alt="关系式"></p>
+<p>那么在getInterpolation中，对应根据input列出算法：</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/1490607864%281%29.jpg" alt="算法"></p>
+<p>那么代码也自然出来了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class MyInterpolator extends BaseInterpolator &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public float getInterpolation(float input) &#123;</span><br><span class="line">        if (input &lt;= 0.25) &#123;</span><br><span class="line">            return 3 * input;</span><br><span class="line">        &#125; else if (input &lt;= 0.75) &#123;</span><br><span class="line">            return (1 - input);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return 3 * input - 2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="四、Evaluator"><a href="#四、Evaluator" class="headerlink" title="四、Evaluator"></a>四、Evaluator</h1><p>Evaluator在属性动画中也是起着重要的一环。先看一张图：</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/dd.jpg" alt="Evaluator"></p>
+<p>我们可以看到，当Interpolator返回了当前进度滞后，Evaluator就会根据进度来计算出确定的值，以供监听器返回，所以我们就可以知道了，Evaluator其实就是一个根据我们需求而制作的一个计算器。</p>
+<p>其实在上面的例子我已经简单地教大家自定义了一个Evaluator，在属性动画中，Android 也为我们提供了很多的Evaluator，例如IntEvaluator，FloatEvaluator等，我们可以先看一下IntEvaluator的底层实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class IntEvaluator implements TypeEvaluator&lt;Integer&gt; &#123;</span><br><span class="line"></span><br><span class="line">    public Integer evaluate(float fraction, Integer startValue, Integer endValue) &#123;</span><br><span class="line">        int startInt = startValue;</span><br><span class="line">        return (int)(startInt + fraction * (endValue - startInt));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码非常的简单，只是重写了一个evaluate方法，在返回值中是一条公式，就是根据开始值和结束值，当前进度，计算结果，并返回，这条公式也是非常简单，这里就不详说了。但是实际开发中，有时候原生的Evaluator不适合我们使用的时候，我们就需要自定义一个Evaluator，正如我上面的例子中用到的，当我们使用了自定义的Object作为初始值和结束值时，我们就需要定义一个自己的Evaluator。下面举一个为了自定义而自定义的Evaluator：</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/dfddf.gif" alt="Evaluator"></p>
+<p>由图可知，自定义的Evaluator就是在FloatEvalutor的基础之上加了200个像素，而我自定义的Evaluator也是修改了以下FloatEvaluator的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyEvaluator implements TypeEvaluator&lt;Float&gt; &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Float evaluate(float fraction, Float startValue, Float endValue) &#123;</span><br><span class="line">        return startValue + fraction * (endValue - startValue) + 200;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是FloatEvaluator的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class FloatEvaluator implements TypeEvaluator&lt;Number&gt; &#123;</span><br><span class="line">    public Float evaluate(float fraction, Number startValue, Number endValue) &#123;</span><br><span class="line">        float startFloat = startValue.floatValue();</span><br><span class="line">        return startFloat + fraction * (endValue.floatValue() - startFloat);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以到这里大家也可以大概了解了怎么自定义Evaluator，非常的简单，实现TypeEvaluator接口，并传入一个类型，也就是初始值和结束值的类型，然后重写evaluate方法，根据当前进度fraction来计算当前的返回值即可。</p>
+<h1 id="五、-总结"><a href="#五、-总结" class="headerlink" title="五、 总结"></a>五、 总结</h1><p>总体来说，ValueAnimator并不会很难，只要我们掌握了Animator的初始化、初始值、结束值、fraction、Evaluator、监听器的概念，那么我们基本掌握了ValueAnimator的使用，当然，伴随着我们的重复使用、加深理解，当然我们离熟悉掌握ValueAnimator也不远了。当然Animator中除了ValueAnimator以外，还有ObjectAnimator，这也是一个非常重要的概念，下一篇，我给大家带来ObjectAnimator的详解。</p>
+
+    </div>
+</div></div>
+    </div>
+    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
+    <img id="top" src="/images/up-circle.svg" alt="top">
+    
+  </body>
+</html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+    scroll.init()
+    siteSearch.init()
+  }
+</script>

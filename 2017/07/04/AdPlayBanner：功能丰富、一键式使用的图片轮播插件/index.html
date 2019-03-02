@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="vvVgSQUzPU">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
+    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
+    
+    <title>
+       AdPlayBanner：功能丰富、一键式使用的图片轮播插件 -  特雷西多士
+    </title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    
+      <link rel="icon" href="/images/favicon.ico">
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
+          </div>
+          <ul>
+            
+              <li><a href="/"> 首页 </a></li>
+            
+              <li><a href="/archives"> 归档 </a></li>
+            
+              <li><a href="/about"> 关于 </a></li>
+            
+              <li><a href="/atom.xml"> RSS </a></li>
+            
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search">
+            </li>
+          </ul>
+           
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AdPlayBanner"><span class="post-toc-number">1.</span> <span class="post-toc-text">AdPlayBanner</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、使用方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">一、使用方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-添加依赖"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1.添加依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-在布局文件中添加控件"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2.在布局文件中添加控件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-在Activity中绑定控件"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3.在Activity中绑定控件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-添加网络权限"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">4.添加网络权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-初始化Fresco"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">5.初始化Fresco</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-一键式使用"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">6.一键式使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-关闭AdPlayBanner"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">7.关闭AdPlayBanner</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、功能介绍"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">二、功能介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-自定义数据顺序"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.自定义数据顺序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-无限循环轮播"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2.无限循环轮播</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-支持三种图片加载方式"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3.支持三种图片加载方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-支持多种ScaleType"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">4.支持多种ScaleType</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-支持不同页码指示器"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">5.支持不同页码指示器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-添加灵活性标题"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">6.添加灵活性标题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-支持多样式切换动画"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">7.支持多样式切换动画</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-设置是否自动轮播"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">8.设置是否自动轮播</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-设置自动滑动间隔时间"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">9.设置自动滑动间隔时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-设置点击事件监听器"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">10.设置点击事件监听器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-关闭AdPlayBanner"><span class="post-toc-number">1.2.11.</span> <span class="post-toc-text">11.关闭AdPlayBanner</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、API"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">三、API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、版本特性"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">四、版本特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v0-1"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">v0.1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#V0-2"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">V0.2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#V0-3"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">V0.3</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、-Demo"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">五、 Demo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、后记"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">六、后记</span></a></li></ol></li></ol> 
+          
+        </div>
+      </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            AdPlayBanner：功能丰富、一键式使用的图片轮播插件
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2017-07-03T16:00:00.000Z" itemprop="datePublished">
+            2017-07-04
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/图片轮播/">图片轮播</a><span class="post-tag-list-count">1</span></li></ul>
+        
+    </div>
+    
+    <div class="post-entry">
+        <h1 id="AdPlayBanner"><a href="#AdPlayBanner" class="headerlink" title="AdPlayBanner"></a>AdPlayBanner</h1><p><a href="https://github.com/ryanlijianchang/AdPlayBanner" target="_blank" rel="noopener">AdPlayBanner</a>是一个Android平台基于ViewPager实现的轮播图插件，主要用以自动或者手动地播放轮播图，提供了Fresco、Picasso、Glide等图片加载方式供用户使用，以及多种图片切换动画，设置轮播时间，设置数据源顺序，提供不同分页指示器等功能，实现了一键式、灵活式的控件使用方式。下面是效果图：</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/banner_pic1.gif" alt></p>
+<p>目前AdPlayBanner已经开源到了Github上面，大家可以在Github上面查看本控件的Demo，或者直接使用。</p>
+<p>Github地址为：<a href="https://github.com/ryanlijianchang/AdPlayBanner" target="_blank" rel="noopener">https://github.com/ryanlijianchang/AdPlayBanner</a></p>
+<h2 id="一、使用方法"><a href="#一、使用方法" class="headerlink" title="一、使用方法"></a>一、使用方法</h2><h3 id="1-添加依赖"><a href="#1-添加依赖" class="headerlink" title="1.添加依赖"></a>1.添加依赖</h3><p>首先，在项目级别的<code>build.gradle</code>文件添加依赖：</p>
+<pre><code>allprojects {
+    repositories {
+        ...
+        maven { url &apos;https://jitpack.io&apos; }
+    }
+}
+</code></pre><p>然后，在模块目录下的<code>build.gradle</code>文件添加依赖：</p>
+<pre><code>dependencies {
+    compile &apos;com.github.ryanlijianchang:AdPlayBanner:v0.2&apos;
+}
+</code></pre><h3 id="2-在布局文件中添加控件"><a href="#2-在布局文件中添加控件" class="headerlink" title="2.在布局文件中添加控件"></a>2.在布局文件中添加控件</h3><p>在布局文件中添加AdPlayBanner控件，根据自己的需要设置高度，注意，控件需要在一个布局（可以是LinearLayout，RelativeLayout，FrameLayout等）之内。</p>
+<pre><code>&lt;com.ryane.banner_lib.AdPlayBanner
+    android:id=&quot;@+id/game_banner&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;200dp&quot; /&gt;
+</code></pre><h3 id="3-在Activity中绑定控件"><a href="#3-在Activity中绑定控件" class="headerlink" title="3.在Activity中绑定控件"></a>3.在Activity中绑定控件</h3><pre><code>mAdPlayBanner = (AdPlayBanner) findViewById(R.id.game_banner);
+</code></pre><h3 id="4-添加网络权限"><a href="#4-添加网络权限" class="headerlink" title="4.添加网络权限"></a>4.添加网络权限</h3><p>由于加载的是网络图片，所以需要在Manifests文件中添加网络请求权限 </p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+</code></pre><h3 id="5-初始化Fresco"><a href="#5-初始化Fresco" class="headerlink" title="5.初始化Fresco"></a>5.初始化Fresco</h3><p>默认使用Fresco加载图片，所以按照Fresco官方做法，需要在Application创建时初始化Fresco，常规做法如下：</p>
+<p>(1) 创建MyApplication类继承Application，然后在onCreate()方法中初始化Fresco：</p>
+<pre><code>public class MyApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Fresco.initialize(this);
+    }
+}
+</code></pre><p>(2) 在Manifests文件中<application>标签中增加 <code>android:name=&quot;你的类名&quot;</code>:</application></p>
+<pre><code>&lt;application
+    android:name=&quot;.MyApplication&quot;
+    ...&gt;
+
+    ...
+
+&lt;/application&gt;
+</code></pre><p>当然，如果你不使用Fresco加载，以上步骤可以跳过。</p>
+<h3 id="6-一键式使用"><a href="#6-一键式使用" class="headerlink" title="6.一键式使用"></a>6.一键式使用</h3><p>AdPlayBanner使用了Builder设计模式，所以可以通过一键式写法来直接装载AdPlayBanner，当然也可以使用常规写法。在使用之前需要先设置数据源，使用ArrayList<adpageinfo>来封装数据，而AdPageInfo是一个封装好的Bean类，封装如下：</adpageinfo></p>
+<pre><code>public class AdPageInfo implements Parcelable {
+    public String title;    // 广告标题
+    public String picUrl;   // 广告图片url
+    public String clickUlr; // 图片点击url
+    public int order;       // 顺序
+}
+</code></pre><p>在设置完数据源<code>mDatas</code>之后，使用Builder模式写法，一句话就可以使用AdPlayBanner了。<strong>注意，<code>setUp()</code>方法必须在调用完所有API之后，最后调用</strong>：</p>
+<pre><code>mAdPlayBanner.setInfoList(mDatas).setUp();
+</code></pre><p>当然，你也可以使用常规写法：</p>
+<pre><code>mAdPlayBanner.setInfoList(mDatas);
+mAdPlayBanner.setUp();
+</code></pre><h3 id="7-关闭AdPlayBanner"><a href="#7-关闭AdPlayBanner" class="headerlink" title="7.关闭AdPlayBanner"></a>7.关闭AdPlayBanner</h3><p>在显示AdPlayBanner的页面生命周期到达onDestroy()时，建议调用<code>mAdPlayBanner.stop()</code>方法结束AdPlayBanner，避免内存泄漏。</p>
+<hr>
+<h2 id="二、功能介绍"><a href="#二、功能介绍" class="headerlink" title="二、功能介绍"></a>二、功能介绍</h2><h3 id="1-自定义数据顺序"><a href="#1-自定义数据顺序" class="headerlink" title="1.自定义数据顺序"></a>1.自定义数据顺序</h3><p>在调用<code>setUp()</code>方法之前，我们需要设置数据源，每一页的数据使用<code>AdPageInfo</code>来封装，它里面就有一个int型变量<code>order</code>,我们通过给每一个<code>AdPageInfo</code>赋值order，AdPlayBanner就会<strong>自动</strong>按照order的大小来排序，如：</p>
+<p>我们封装了三个数据到ArrayList里面，按顺序是图片1-&gt;图片2-&gt;图片3</p>
+<pre><code>List&lt;AdPageInfo&gt; mDatas = new ArrayList&lt;&gt;();
+AdPageInfo info1 = new AdPageInfo(&quot;图片1&quot;, &quot;http://osjnd854m.bkt.clouddn.com/pic1_meitu_1.jpg&quot;, &quot;链接1&quot;, 3);
+AdPageInfo info2 = new AdPageInfo(&quot;图片2&quot;, &quot;http://osjnd854m.bkt.clouddn.com/pic1_meitu_2.jpg&quot;, &quot;链接2&quot;, 2);
+AdPageInfo info3 = new AdPageInfo(&quot;图片3&quot;, &quot;http://osjnd854m.bkt.clouddn.com/pic1_meitu_3.jpg&quot;, &quot;链接3&quot;, 1);
+mDatas.add(info1);
+mDatas.add(info2);
+mDatas.add(info3);
+</code></pre><p>装载之后运行，可见轮播顺序是按照order的顺序来播放：</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/order.gif" alt></p>
+<h3 id="2-无限循环轮播"><a href="#2-无限循环轮播" class="headerlink" title="2.无限循环轮播"></a>2.无限循环轮播</h3><p>很多轮播插件没有实现无限循环轮播这个功能, 而在AdPlayBanner上得到了实现，如下图可见，当我们无限循环滑动时，插件仍能正常运行：</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/pic_circle_play_new.gif" alt></p>
+<h3 id="3-支持三种图片加载方式"><a href="#3-支持三种图片加载方式" class="headerlink" title="3.支持三种图片加载方式"></a>3.支持三种图片加载方式</h3><p>目前比较主流的Fresco、Picasso、Glide三种图片加载方式在AdPlayBanner中都支持，至于三者的区别我就不赘述了，默认是使用Fresco方式加载，具体调用方法<code>setImageLoadType(ImageLoaderType type)</code>，只需要将传入数据设置为：<code>FRESCO</code>、<code>GLIDE</code>、<code>PICASSO</code>其中一种即可，同样，也是可以通过代码一键式使用，例如使用Glide方式加载（其他加载方式使用类似），使用方法如下：</p>
+<pre><code>mAdPlayBanner
+        .setInfoList((ArrayList&lt;AdPageInfo&gt;) mDatas)
+        .setImageLoadType(Glide)    // 设置Glide类型的图片加载方式
+        .setUp();
+</code></pre><h3 id="4-支持多种ScaleType"><a href="#4-支持多种ScaleType" class="headerlink" title="4.支持多种ScaleType"></a>4.支持多种ScaleType</h3><p>在AdPlayBanner中，可以根据用户需要设置图片的ScaleType，具体效果和ImageView的ScaleType一致，默认是使用<code>FIT_XY</code>，但是在AdPlayBanner中比ImageView少了一种<code>MATRIX</code>类型，在AdPlayBanner中具体支持的ScaleType有如下：<code>FIT_XY</code>、<code>FIT_START</code>、<code>FIT_CENTER</code>、<code>FIT_END</code>、<code>CENTER</code>、<code>CENTER_CROP</code>、<code>CENTER_INSIDE</code>其中，具体调用方法<code>setImageViewScaleType(ScaleType scaleType)</code>，只需要将具体的ScaleType传入即可，同样，也是可以通过代码一键式使用，例如设置ScaleType为<code>FIT_START</code>（其他类似），使用方法如下：</p>
+<pre><code>mAdPlayBanner
+        .setInfoList((ArrayList&lt;AdPageInfo&gt;) mDatas)
+        .setImageViewScaleType(FIT_START)    // 设置FIT_START类型的ScaleType
+        .setUp();
+</code></pre><h3 id="5-支持不同页码指示器"><a href="#5-支持不同页码指示器" class="headerlink" title="5.支持不同页码指示器"></a>5.支持不同页码指示器</h3><p>在AdPlayBanner中，提供了<code>数字型</code>、<code>点型</code>和<code>空型</code>页码指示器，用户可以通过调用<code>setIndicatorType(IndicatorType type)</code>，传入<code>NONE_INDICATOR</code>，<code>NUMBER_INDICATOR</code>，<code>POINT_INDICATOR</code>其中一种，即可显示对应的页码指示器，三种页码指示器对应效果如下：</p>
+<p>(1) <code>NONE_INDICATOR</code>：空型页码指示器</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/indicator_none.jpg" alt></p>
+<p>(2) <code>NUMBER_INDICATOR</code>：数字页码指示器</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/indicator_number.jpg" alt></p>
+<p>(3) <code>POINT_INDICATOR</code>：点型页码指示器</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/indicator_point.jpg" alt></p>
+<p>使用方法也是非常简单，如我需要使用数字型页码指示器，使用方法如下：</p>
+<pre><code>mAdPlayBanner
+        .setInfoList((ArrayList&lt;AdPageInfo&gt;) mDatas)
+        .setIndicatorType(NUMBER_INDICATOR)        //使用数字页码指示器
+        .setUp();
+</code></pre><p>此外，你也可以调用<code>setNumberViewColor(int normalColor, int selectedColor, int numberColor)</code>来修改数字型页码指示器的样式，<code>normalColor</code>为数字没选中时的背景颜色，<code>selectedColor</code>为数字选中时的背景颜色，<code>numberColor</code>为数字的字体颜色，例如我通过调用这个方法，把三个颜色都改变掉（注意：传入int型颜色必须ARGB8888的颜色类型，或者通过资源文件定义颜色再获取才有效），使用方法如下：</p>
+<pre><code>mAdPlayBanner
+        .setInfoList((ArrayList&lt;AdPageInfo&gt;) mDatas)
+        .setIndicatorType(NUMBER_INDICATOR)     //使用数字页码指示器
+        .setNumberViewColor(0xff00ffff, 0xffff3333, 0xff0000ff)
+        .setUp();
+</code></pre><p>得到如下效果：</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/numberview_color.jpg" alt></p>
+<h3 id="6-添加灵活性标题"><a href="#6-添加灵活性标题" class="headerlink" title="6.添加灵活性标题"></a>6.添加灵活性标题</h3><p>在AdPlayBanner中，只需要调用<code>addTitleView(TitleView mTitleView)</code>，就可以插入标题了，并且该标题的灵活性很强，可以根据用户需要修改标题的背景、位置、字体大小、padding、magin等，先上一个提供的默认效果：</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/pic_title_view_little.gif" alt></p>
+<p>由于是使用了默认的效果，所以用法也是非常简单：</p>
+<pre><code>mAdPlayBanner
+        .setInfoList((ArrayList&lt;AdPageInfo&gt;) mDatas)
+        .setIndicatorType(POINT_INDICATOR)     //使用数字页码指示器
+        .addTitleView(TitleView.getDefaultTitleView(getApplicationContext()))  // 使用默认标题
+        .setUp();
+</code></pre><p>我们可以看到我们通过调用<code>addTitleView(TitleView mTitleView)</code>，传入一个TitleView即可以生成标题，而上面是调用了AdPlayBanner提供的一个默认标题，当然，我们也说了这个标题的灵活性很强，就是我们可以设置TitleView的属性，我们来看一下TitleView提供了哪些API：</p>
+<ul>
+<li><code>TitleView setTitleColor(int color)</code>：设置标题字体颜色，传入color必须ARGB8888的颜色类型，或者通过资源文件定义颜色再获取才有效。</li>
+<li><code>setPosition(Gravity gravity)</code>：设置标题在AdPlayBanner中的位置，有<code>PARENT_TOP</code>,<code>PARENT_BOTTOM</code>,<code>PARENT_CENTER</code>三个取值，分别位于父布局顶部，父布局底部，父布局中间。</li>
+<li><code>setViewBackground(int color)</code>：设置标题的背景颜色，传入int型颜色必须ARGB8888的颜色类型，或者通过资源文件定义颜色再获取才有效。</li>
+<li><code>TitleView setTitleSize(int size)</code>：设置标题的字体大小，单位是sp。</li>
+<li><code>setTitleMargin(int left, int top, int right, int bottom)</code>：设置标题的四个方向margin值，单位是dp。</li>
+<li><code>setTitlePadding(int left, int top, int right, int bottom)</code>：设置标题的四个方向padding值，单位是dp。</li>
+</ul>
+<p>同样，TitleView也是支持Builder模式的写法，例如我自定义一个TitleVIew并加到AdPlayBanner中，使用方法如下：</p>
+<pre><code>mAdPlayBanner
+        .setInfoList((ArrayList&lt;AdPageInfo&gt;) mDatas)
+        .setIndicatorType(POINT_INDICATOR)     // 使用数字页码指示器
+        .addTitleView(new TitleView(getApplicationContext())    // 创建新的TitleView
+                            .setPosition(PARENT_TOP)
+                            .setTitleColor(0xffffffff)          // 设置字体颜色
+                            .setViewBackground(0x9944ff18)      // 设置标题背景颜色
+                            .setTitleSize(18)                   // 设置字体大小
+                            .setTitleMargin(0,0,2,0)           // 设置margin值
+                            .setTitlePadding(2,2,2,2))          // 设置padding值
+        .setUp();
+</code></pre><p>效果如下：</p>
+<p><img src="http://osjnd854m.bkt.clouddn.com/pic_title_view_zidingyi%20.gif" alt></p>
+<h3 id="7-支持多样式切换动画"><a href="#7-支持多样式切换动画" class="headerlink" title="7.支持多样式切换动画"></a>7.支持多样式切换动画</h3><p>由于AdPlayBanner是基于ViewPager实现的，所以AdPlayBanner和ViewPager一样，同样支持自定义的切换动画，只需要通过调用<code>setPageTransfromer(ViewPager.PageTransformer transformer)</code>方法，传入一个PageTransformer，即可改变它的切换样式，AdPlayBanner中提供了三种现成的切换方式：</p>
+<ul>
+<li><code>FadeInFadeOutTransformer</code>：淡入淡出效果</li>
+</ul>
+<p><img src="http://osjnd854m.bkt.clouddn.com/fade_in.gif" alt></p>
+<ul>
+<li><code>RotateDownTransformer</code>：旋转效果</li>
+</ul>
+<p><img src="http://osjnd854m.bkt.clouddn.com/rotate.gif" alt></p>
+<ul>
+<li><code>ZoomOutPageTransformer</code>： 空间切换效果</li>
+</ul>
+<p><img src="http://osjnd854m.bkt.clouddn.com/zoom_out.gif" alt></p>
+<p>使用起来也是非常简单，例如使用ZoomOutPageTransformer切换效果：</p>
+<pre><code>mAdPlayBanner
+        .setInfoList((ArrayList&lt;AdPageInfo&gt;) mDatas)
+        .setIndicatorType(POINT_INDICATOR)     // 使用数字页码指示器
+        .setBannerBackground(0xff000000)       // 设置背景颜色
+        .setPageTransfromer(new ZoomOutPageTransformer())   // 设置切换效果
+        .setUp();
+</code></pre><p>当然，你也可以自定义一个transformer实现ViewPager.PageTransformer接口，并重写<code>transformPage(View view, float position)</code>方法即可实现自定义的切换效果。</p>
+<h3 id="8-设置是否自动轮播"><a href="#8-设置是否自动轮播" class="headerlink" title="8.设置是否自动轮播"></a>8.设置是否自动轮播</h3><p>通过调用<code>setAutoPlay(boolean autoPlay)</code>,传入boolean值控制是否自动播放的开关，传入true为自动，传入false为手动。</p>
+<h3 id="9-设置自动滑动间隔时间"><a href="#9-设置自动滑动间隔时间" class="headerlink" title="9.设置自动滑动间隔时间"></a>9.设置自动滑动间隔时间</h3><p>通过调用<code>setInterval(int interval)</code>，传入int型的时间（单位ms），即可改变AdPlayBanner自动轮播时的切换时间。</p>
+<h3 id="10-设置点击事件监听器"><a href="#10-设置点击事件监听器" class="headerlink" title="10.设置点击事件监听器"></a>10.设置点击事件监听器</h3><p>AdPlayBanner支持点击事件监听，通过调用<code>setOnPageClickListener(OnPageClickListener l)</code>，传入OnPageClickListener，即可完成AdPlayBanner的点击监听，使用方法非常简单：</p>
+<pre><code>mAdPlayBanner
+    .setInfoList((ArrayList&lt;AdPageInfo&gt;) mDatas)
+    .setIndicatorType(POINT_INDICATOR)     // 使用数字页码指示器
+    .setOnPageClickListener(new AdPlayBanner.OnPageClickListener() {
+        @Override
+        public void onPageClick(AdPageInfo info, int postion) {
+            // 点击操作
+        }
+    })
+    .setUp();
+</code></pre><h3 id="11-关闭AdPlayBanner"><a href="#11-关闭AdPlayBanner" class="headerlink" title="11.关闭AdPlayBanner"></a>11.关闭AdPlayBanner</h3><p>在离开显示AdPlayBanner的页面时，建议调用<code>stop()</code>方法，避免内存泄漏。</p>
+<h2 id="三、API"><a href="#三、API" class="headerlink" title="三、API"></a>三、API</h2><p><strong>AdPlayBanner：实现轮播效果的控件</strong></p>
+<table>
+<thead>
+<tr>
+<th>AdPlayBanner</th>
+<th>解释</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>addTitleView(TitleView mTitleView)</td>
+<td>添加一个TitleView</td>
+<td>可以通过TitleView.getDefaultTitleView(Context context)来使用默认的TitleView或者通过new Title()的方式传入</td>
+</tr>
+<tr>
+<td>setBannerBackground(int color)</td>
+<td>设置AdPlayBanner的背景颜色</td>
+<td>传入color必须ARGB8888的颜色类型，或者通过资源文件定义颜色再获取才有效</td>
+</tr>
+<tr>
+<td>setIndicatorType(IndicatorType type)</td>
+<td>设置页码指示器类型</td>
+<td>传入<code>NONE_INDICATOR</code>，<code>NUMBER_INDICATOR</code>，<code>POINT_INDICATOR</code>其中一种</td>
+</tr>
+<tr>
+<td>setInterval(int interval)</td>
+<td>设置自动轮播时的切换时间</td>
+<td>单位ms</td>
+</tr>
+<tr>
+<td>setImageLoadType(ImageLoaderType type)</td>
+<td>设置图片加载方式</td>
+<td>传入<code>FRESCO</code>、<code>GLIDE</code>、<code>PICASSO</code>其中一种</td>
+</tr>
+<tr>
+<td>setPageTransfromer(ViewPager.PageTransformer transformer)</td>
+<td>设置切换动画，如果不设置动画，设置为null</td>
+<td>提供了<code>FadeInFadeOutTransformer</code>，<code>RotateDownTransformer</code>，<code>ZoomOutPageTransformer</code>三种，也可以传入自定义的TransFormer</td>
+</tr>
+<tr>
+<td>setNumberViewColor(int normalColor, int selectedColor, int numberColor)</td>
+<td>设置数字页码的颜色</td>
+<td>normalColor   数字正常背景颜色，selectedColor 数字选中背景颜色，numberColor   数字字体颜色</td>
+</tr>
+<tr>
+<td>setOnPageClickListener(OnPageClickListener l)</td>
+<td>设置事件点击监听器</td>
+<td>传入一个OnPageClickListener</td>
+</tr>
+<tr>
+<td>setImageViewScaleType(ScaleType scaleType)</td>
+<td>设置图片的ScaleType</td>
+<td>传入<code>FIT_XY</code>、<code>FIT_START</code>、<code>FIT_CENTER</code>、<code>FIT_END</code>、<code>CENTER</code>、<code>CENTER_CROP</code>、<code>CENTER_INSIDE</code>其中一种</td>
+</tr>
+<tr>
+<td>setAutoPlay(boolean autoPlay)</td>
+<td>设置是否自动播放</td>
+<td>默认为true 自动播放，传入false为手动</td>
+</tr>
+<tr>
+<td>setInfoList(ArrayList<adpageinfo> pageInfos)</adpageinfo></td>
+<td>设置Banner的数据源</td>
+<td>传入必须为AdPageInfo类型的ArrayList</td>
+</tr>
+<tr>
+<td>setUp()</td>
+<td>装载AdPlayBanner</td>
+<td>必须在以上所有方法调用完之后才能调用</td>
+</tr>
+<tr>
+<td>stop()</td>
+<td>结束AdPlayBanner</td>
+<td>在离开显示AdPlayBanner页面时调用，避免内存泄漏</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TitleView ： 标题控件</strong></p>
+<table>
+<thead>
+<tr>
+<th>TitleView</th>
+<th>解释</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>getDefaultTitleView(Context context)</td>
+<td>获取一个默认的TitleView</td>
+<td>传入一个Context</td>
+</tr>
+<tr>
+<td>setTitleSize(int size)</td>
+<td>设置字体大小</td>
+<td>单位sp</td>
+</tr>
+<tr>
+<td>setTitleColor(int color)</td>
+<td>设置字体颜色</td>
+<td>传入color必须ARGB8888的颜色类型，或者通过资源文件定义颜色再获取才有效</td>
+</tr>
+<tr>
+<td>setViewBackground(int color)</td>
+<td>设置标题背景</td>
+<td>传入color必须ARGB8888的颜色类型，或者通过资源文件定义颜色再获取才有效</td>
+</tr>
+<tr>
+<td>setPosition(Gravity gravity)</td>
+<td>设置标题在Banner的位置</td>
+<td>只能<code>PARENT_TOP</code>,<code>PARENT_BOTTOM</code>,<code>PARENT_CENTER</code>其中一个值</td>
+</tr>
+<tr>
+<td>setTitleMargin(int left, int top, int right, int bottom)</td>
+<td>设置标题的margin值</td>
+<td>单位dp</td>
+</tr>
+<tr>
+<td>setTitlePadding(int left, int top, int right, int bottom)</td>
+<td>设置标题的padding值</td>
+<td>单位dp</td>
+</tr>
+</tbody>
+</table>
+<p><strong>AdPageInfo：AdPlayView指定的数据源</strong></p>
+<table>
+<thead>
+<tr>
+<th>AdPageInfo</th>
+<th>解释</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AdPageInfo(String title, String picUrl, String clickUlr, int order)</td>
+<td>构造方法</td>
+<td></td>
+</tr>
+<tr>
+<td>void setTitle(String title)</td>
+<td>设置标题</td>
+<td></td>
+</tr>
+<tr>
+<td>String getTitle()</td>
+<td>获取标题</td>
+<td></td>
+</tr>
+<tr>
+<td>void setPicUrl(String picUrl)</td>
+<td>设置图片源地址</td>
+<td></td>
+</tr>
+<tr>
+<td>String getPicUrl()</td>
+<td>获取图片链接</td>
+<td></td>
+</tr>
+<tr>
+<td>void setClickUlr(String clickUlr)</td>
+<td>设置点击事件地址</td>
+<td></td>
+</tr>
+<tr>
+<td>String getClickUlr()</td>
+<td>获取点击事件链接</td>
+<td></td>
+</tr>
+<tr>
+<td>void setOrder(int order)</td>
+<td>设置排序的优先级</td>
+<td>设置了order，AdPlayBanner会根据order的大小由小到大排序</td>
+</tr>
+<tr>
+<td>int getOrder()</td>
+<td>获取排序优先级</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="四、版本特性"><a href="#四、版本特性" class="headerlink" title="四、版本特性"></a>四、版本特性</h2><h3 id="v0-1"><a href="#v0-1" class="headerlink" title="v0.1"></a>v0.1</h3><ol>
+<li>基本框架搭建完成；</li>
+</ol>
+<h3 id="V0-2"><a href="#V0-2" class="headerlink" title="V0.2"></a>V0.2</h3><ol>
+<li>支持定义数据顺序；</li>
+<li>无限循环轮播；</li>
+<li>支持Fresco、Glide、Picasso三种图片加载方式；</li>
+<li>支持多种ScaleType；</li>
+<li>支持点型、数字型、空型页码指示器；支持修改数字型页码器的样式；</li>
+<li>支持灵活性标题；支持修改标题的位置、字体大小、颜色、边距值等属性；</li>
+<li>支持多样式切换动画；</li>
+<li>支持设置自动轮播开关；</li>
+<li>自定义自动滑动间隔时间；</li>
+<li>提供点击事件监听器；</li>
+<li>支持修改AdPlayBanner的背景颜色；</li>
+</ol>
+<h3 id="V0-3"><a href="#V0-3" class="headerlink" title="V0.3"></a>V0.3</h3><ol>
+<li>修复了静态变量造成的内存泄漏问题;</li>
+<li>提供手动结束Banner播放的接口;</li>
+</ol>
+<h2 id="五、-Demo"><a href="#五、-Demo" class="headerlink" title="五、 Demo"></a>五、 Demo</h2><p>如果大家在使用在仍然有问题，可以通过下载<a href="https://github.com/ryanlijianchang/AdPlayBanner" target="_blank" rel="noopener">Demo</a>来学习，当然，大家更可以通过查看源代码来学习如何自定义一个轮播控件。</p>
+<h2 id="六、后记"><a href="#六、后记" class="headerlink" title="六、后记"></a>六、后记</h2><p>AdPlayBanner作为作者的第一个开源控件，作者也是非常用心认真地完成，这个过程也学习到很多东西，可能其中会遇到很多错误，所以希望大家可以多多包涵，然后把错误提到Issues里面，作者会在看到的第一时间进行修正。在后面的时间里，作者也会将更多的特性加到这个控件里面，所以希望大家可以加个star，以作为对作者的小小鼓励。 当然，如果你想第一时间联系到作者，不妨尝试以下联系方式：</p>
+<ul>
+<li>Email：<a href="mailto:liji.anchang@163.com" target="_blank" rel="noopener">liji.anchang@163.com</a> </li>
+<li>CSDN：<a href="http://blog.csdn.net/ljcitworld" target="_blank" rel="noopener">http://blog.csdn.net/ljcitworld</a></li>
+<li>Github：<a href="https://github.com/ryanlijianchang" target="_blank" rel="noopener">https://github.com/ryanlijianchang</a></li>
+</ul>
+
+    </div>
+</div></div>
+    </div>
+    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
+    <img id="top" src="/images/up-circle.svg" alt="top">
+    
+  </body>
+</html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+    scroll.init()
+    siteSearch.init()
+  }
+</script>

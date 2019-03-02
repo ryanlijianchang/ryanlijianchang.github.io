@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="vvVgSQUzPU">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
+    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
+    
+    <title>
+       Android基础夯实--重温动画（一）之Tween Animation -  特雷西多士
+    </title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    
+      <link rel="icon" href="/images/favicon.ico">
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
+          </div>
+          <ul>
+            
+              <li><a href="/"> 首页 </a></li>
+            
+              <li><a href="/archives"> 归档 </a></li>
+            
+              <li><a href="/about"> 关于 </a></li>
+            
+              <li><a href="/atom.xml"> RSS </a></li>
+            
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search">
+            </li>
+          </ul>
+           
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">2.</span> <span class="post-toc-text">概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、动画资源文件的位置"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">一、动画资源文件的位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、类型"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">二、类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、使用方式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">三、使用方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、Animation类"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">四、Animation类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接子类"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">直接子类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#监听器"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">监听器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性及其对应方法-所有子类都拥有"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">属性及其对应方法(所有子类都拥有)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、Interpolator"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">五、Interpolator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、AnimationSet"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">六、AnimationSet</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数"><span class="post-toc-number">2.6.1.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主要属性及其方法-父类以外的"><span class="post-toc-number">2.6.2.</span> <span class="post-toc-text">主要属性及其方法(父类以外的)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Java方法"><span class="post-toc-number">2.6.2.1.</span> <span class="post-toc-text">Java方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#七、AlphaAnimation"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">七、AlphaAnimation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数-1"><span class="post-toc-number">2.7.1.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主要属性及其对应方法-父类以外的"><span class="post-toc-number">2.7.2.</span> <span class="post-toc-text">主要属性及其对应方法(父类以外的)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#XML属性"><span class="post-toc-number">2.7.2.1.</span> <span class="post-toc-text">XML属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Java方法-1"><span class="post-toc-number">2.7.2.2.</span> <span class="post-toc-text">Java方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#八、ScaleAnimation"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">八、ScaleAnimation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数-2"><span class="post-toc-number">2.8.1.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主要属性及其方法-父类以外的-1"><span class="post-toc-number">2.8.2.</span> <span class="post-toc-text">主要属性及其方法(父类以外的)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#XML属性-1"><span class="post-toc-number">2.8.2.1.</span> <span class="post-toc-text">XML属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Java方法-2"><span class="post-toc-number">2.8.2.2.</span> <span class="post-toc-text">Java方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#九、RotateAnimation"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">九、RotateAnimation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数-3"><span class="post-toc-number">2.9.1.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主要属性及其方法-父类以外的-2"><span class="post-toc-number">2.9.2.</span> <span class="post-toc-text">主要属性及其方法(父类以外的)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#XML属性-2"><span class="post-toc-number">2.9.2.1.</span> <span class="post-toc-text">XML属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Java方法-3"><span class="post-toc-number">2.9.2.2.</span> <span class="post-toc-text">Java方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#十、TranslateAnimation"><span class="post-toc-number">2.9.3.</span> <span class="post-toc-text">十、TranslateAnimation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造函数-4"><span class="post-toc-number">2.9.4.</span> <span class="post-toc-text">构造函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主要属性及其方法-父类以外的-3"><span class="post-toc-number">2.9.5.</span> <span class="post-toc-text">主要属性及其方法(父类以外的)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Java方法-4"><span class="post-toc-number">2.9.5.1.</span> <span class="post-toc-text">Java方法</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol> 
+          
+        </div>
+      </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            Android基础夯实--重温动画（一）之Tween Animation
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2017-03-20T16:00:00.000Z" itemprop="datePublished">
+            2017-03-21
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/动画/">动画</a><span class="post-tag-list-count">5</span></li></ul>
+        
+    </div>
+    
+    <div class="post-entry">
+        <p><em>心灵鸡汤：真正成功的人生，不在于成就的大小，而在于你是否努力地去实现自我，喊出自己的声音，走出属于自己的道路。</em></p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>不积跬步，无以至千里；不积小流，无以成江海。学习任何东西我们都离不开扎实的基础知识，这次我们重温Android中让我们又爱又恨的动画。即便没有很好的算法思想，但是掌握了Animation的基础，我们同样可以通过动画给我们的App增色不少。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>在我们日常开发中，我们都希望我们的App拥有及其炫酷的动画效果，除了一些SDK提供给我们拥有炫酷动画效果的控件外，都需要我们自己来实现。在Android系统中，官方给我们提供了两种类型的动画：<strong>属性动画(Property Animation)</strong> 和 <strong>视图动画(View Animation)</strong>，而视图动画又包含了两种类型：补间动画(Tween animation) 和 帧动画(Frame animation)。</p>
+<ol>
+<li><p>Property Animation(属性动画)：通过改变对象的属性来实现动画效果。</p>
+</li>
+<li><p>View Animation(视图动画)：包括了以下两种动画类型。</p>
+<ul>
+<li><p><em>Tween Animation(补间动画)</em>：通过对视图进行一系列的动作变化实现动画效果。</p>
+</li>
+<li><p><em>Frame Animation(帧动画)</em>：通过一组图片有序播放实现动画视觉效果。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/YY%E5%9B%BE%E7%89%8720170317181609.jpg" alt="Android官方文档 Animation的分类"></p>
+<p>为此，由于篇幅过长，笔主通过三篇博文来重温Animation的相关基础知识，内容主要作为抛砖引玉，围绕这三种动画作简单的介绍，因为所有的动画都是以这几种动画为基础，配合其他的技术，例如自定义View、还有一些曲线函数等，做出很多炫酷的效果。但是，炫酷动画万万千，我们做的每一个动画需求都是源自设计师的灵感，所以这篇文章就不对动画的高阶讲解，相反，是作为抛砖引玉，所以如果你已经非常熟悉动画相关，可以跳过，但是如果你对动画还是不了解，不妨继续看下去。</p>
+<p>当然，更权威的解释请查看官方文档：<a href="https://developer.android.com/guide/topics/resources/animation-resource.html#Property" target="_blank" rel="noopener">Animation Resources</a></p>
+<p>本文首先对View Animation的Tween Animation做介绍，如果大家有兴趣，可以继续阅读本动画系列其他相关文章，作者也在不断更新完善相关内容，希望大家可以指出有误之处。</p>
+<p>Tween Animation，翻译为补间动画，是View Animation两种中的一种，是Android开发中使用最普遍的动画，当然也是使用率最高的一种动画，因为它能够基本满足我们的动画需要，主要是通过对控件实现透明度(alpha)、尺寸(scale)、位置(translate)、旋转rotate)进行改变，通过集合(set)的方式，实现连续的动画效果。</p>
+<h2 id="一、动画资源文件的位置"><a href="#一、动画资源文件的位置" class="headerlink" title="一、动画资源文件的位置"></a>一、动画资源文件的位置</h2><p><img src="http://7xs0af.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720170317152414.png" alt="动画资源文件的位置"></p>
+<h2 id="二、类型"><a href="#二、类型" class="headerlink" title="二、类型"></a>二、类型</h2><p>Tween Animation是View Animation其中之一，Tween Animation可以实现对控件实现以下四种变换:</p>
+<ol>
+<li>alpha：透明度渐变动画效果</li>
+<li>scale：尺寸变化动画效果</li>
+<li>translate：位置移动动画效果</li>
+<li>rotate：转移旋转动画效果</li>
+</ol>
+<h2 id="三、使用方式"><a href="#三、使用方式" class="headerlink" title="三、使用方式"></a>三、使用方式</h2><ol>
+<li>在XML文件中定义一系列的动画标签，所有便签在set便签里面构成集合</li>
+<li>Java文件中代码实现</li>
+</ol>
+<p>之所以可以这样，是因为四个便签都有对应的Java类：AlphaAnimation, RotateAnimation, ScaleAnimation, TranslateAnimation。</p>
+<p>所在包：android.view.animation.*</p>
+<p>都继承于父类：<a href="https://developer.android.com/reference/android/view/animation/Animation.html" target="_blank" rel="noopener">android.view.animation.Animation</a></p>
+<h2 id="四、Animation类"><a href="#四、Animation类" class="headerlink" title="四、Animation类"></a>四、Animation类</h2><p>Tween Animation的所有效果都是继承于Animation类，Animation类作为一个抽象类，提供了动画基本属性的实现，需要由具体的子类来具体实现。</p>
+<h3 id="直接子类"><a href="#直接子类" class="headerlink" title="直接子类"></a>直接子类</h3><ul>
+<li>AnimationSet：代表着一组可以一起播放的动画。</li>
+<li>AlphaAnimation：控制一个对象透明度的动画。</li>
+<li>RotateAnimation：控制一个对象旋转的动画。</li>
+<li>ScaleAnimation：控制一个对象尺寸的动画。</li>
+<li>TranslateAnimation：控制一个对象位置的动画。</li>
+</ul>
+<h3 id="监听器"><a href="#监听器" class="headerlink" title="监听器"></a>监听器</h3><ul>
+<li>Animation.AnimationListener：动画监听器。主要包括监听动画执行中、执行结束、循环执行三个过程。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">mAnimation.setAnimationListener(new Animation.AnimationListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationStart(Animation animation) &#123;</span><br><span class="line">            // 动画执行时</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onAnimationEnd(Animation animation) &#123;</span><br><span class="line">            // 动画结束时</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onAnimationRepeat(Animation animation) &#123;</span><br><span class="line">            // 动画循环时</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="属性及其对应方法-所有子类都拥有"><a href="#属性及其对应方法-所有子类都拥有" class="headerlink" title="属性及其对应方法(所有子类都拥有)"></a>属性及其对应方法(所有子类都拥有)</h3><ul>
+<li><p><strong>android:detachWallpaper：</strong> 是否在壁纸上运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setDetachWallpaper(boolean detachWallpaper)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:duration：</strong>  动画时长，单位毫秒。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setDuration(long)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:fillAfter：</strong> 设置为true，控件动画结束时将保持动画最后一帧（xml文件中，需要设置在set便签才生效）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setFillAfter(boolean)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:fillBefore：</strong> 设置为true，控件动画结束时将保持动画开始第一帧（感觉很坑爹，设置true和false还有删除这个属性，效果都一样）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setFillBefore(boolean)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:fillEnabled：</strong> 效果和fillBefore一样（同样坑爹，经测试这个属性可有可无，求打脸。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setFillEnabled(boolean)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:interpolator：</strong> 插值器。设置动画速率的变化(譬如加速、减速、匀速等)，后面详说。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setInterpolator(Interpolator)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:repeatCount：</strong> 动画重复次数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setRepeatCount(int)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:repeatMode：</strong> 重复模式，有reverse(倒序)和restart(重复)两种，必须配合repeatCount一起使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setRepeatMode(int)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:startOffset：</strong> 延迟一定毫秒之后才开始动画。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setStartOffset(long)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>android:zAdjustment：</strong>  表示被设置动画的内容在动画运行时在Z轴上的位置，有以下三个值</p>
+<ul>
+<li>normal 默认值，保持内容在Z轴上的位置不变</li>
+<li>top 保持在Z周最上层</li>
+<li>bottom 保持在Z轴最下层<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java方法：setZAdjustment(int)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="五、Interpolator"><a href="#五、Interpolator" class="headerlink" title="五、Interpolator"></a>五、Interpolator</h2><p>Interpolator，又名插值器，主要是实现动画的速率变化。Interpolator作为一个接口，然后抽象类BaseInterpolator实现Interpolator接口，在BaseInterpolator的子类就是一系列Android提供的插值器。</p>
+<p>用法：</p>
+<ol>
+<li>在XML的标签下设置:android:interpolator=”@android:anim/accelerate_decelerate_interpolator”</li>
+<li>在JAVA代码中使用：animation.setInterpolator(new AccelerateDecelerateInterpolator());</li>
+</ol>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/YY%E5%9B%BE%E7%89%8720170321171708.jpg" alt="Interpolator"></p>
+<p>以下为Andorid所提供的所有插值器：</p>
+<ul>
+<li>1、AccelerateDecelerateInterpolator：开始和结束速度慢，中间部分加速。</li>
+<li>2、AccelerateInterpolator：开始缓慢，然后加速。</li>
+<li>3、AnticipateInterpolator: 开始后退，然后前进。</li>
+<li>4、AnticipateOvershootInterpolator: 开始后退，然后前进，直到超出目标值，再后退至目标值。</li>
+<li>5、BounceInterpolator：在结束时弹跳。</li>
+<li>6、CycleInterpolator：在指定数量的周期内重复动画，速度变化遵循正弦规律。</li>
+<li>7、DecelerateInterpolator：开始加速，结束缓慢。</li>
+<li>8、LinearInterpolator：匀速。</li>
+<li>9、OvershootInterpolator：前进，直到超出目标值，再后退至目标值。</li>
+<li>10、PathInterpolator：根据路径变化改变速率。</li>
+</ul>
+<p>关于以上所有插值器的Demo：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/mg1.gif" alt="1-3"></p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/mg2.gif" alt="4-7"></p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/mg3.gif" alt="8-10"></p>
+<h2 id="六、AnimationSet"><a href="#六、AnimationSet" class="headerlink" title="六、AnimationSet"></a>六、AnimationSet</h2><p>AnimationSet是动画中非常重要的概念，继承于Animation类，它将很多独立的动画包裹到一个集合内，形成一个共同作用的动画效果。例如，我们会在res/anim/目录下的xml文件里面这样实现一个包含多种效果的动画(透明度、尺寸、位置、旋转)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:fillAfter=&quot;true&quot;</span><br><span class="line">    android:shareInterpolator=&quot;false&quot;&gt;</span><br><span class="line">    &lt;scale</span><br><span class="line">        android:duration=&quot;1500&quot;</span><br><span class="line">        android:fromXScale=&quot;1.0&quot;</span><br><span class="line">        android:fromYScale=&quot;1.0&quot;</span><br><span class="line">        android:interpolator=&quot;@android:anim/accelerate_decelerate_interpolator&quot;</span><br><span class="line">        android:pivotX=&quot;50%&quot;</span><br><span class="line">        android:pivotY=&quot;50%&quot;</span><br><span class="line">        android:toXScale=&quot;1.4&quot;</span><br><span class="line">        android:toYScale=&quot;0.6&quot; /&gt;</span><br><span class="line">    &lt;set</span><br><span class="line">        android:duration=&quot;1000&quot;</span><br><span class="line">        android:interpolator=&quot;@android:anim/accelerate_interpolator&quot;</span><br><span class="line">        android:startOffset=&quot;1500&quot;&gt;</span><br><span class="line">        &lt;scale</span><br><span class="line">            android:fromXScale=&quot;1.4&quot;</span><br><span class="line">            android:fromYScale=&quot;0.6&quot;</span><br><span class="line">            android:pivotX=&quot;50%&quot;</span><br><span class="line">            android:pivotY=&quot;50%&quot;</span><br><span class="line">            android:toXScale=&quot;0.0&quot;</span><br><span class="line">            android:toYScale=&quot;0.0&quot; /&gt;</span><br><span class="line">        &lt;rotate</span><br><span class="line">            android:fromDegrees=&quot;0&quot;</span><br><span class="line">            android:pivotX=&quot;50%&quot;</span><br><span class="line">            android:pivotY=&quot;50%&quot;</span><br><span class="line">            android:toDegrees=&quot;-45&quot; /&gt;</span><br><span class="line">    &lt;/set&gt;</span><br><span class="line">&lt;/set&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="http://7xrxlv.com1.z0.glb.clouddn.com/ezgif.com-video-to-gif%20%282%29.gif" alt="AnimationSet"></p>
+<p>当然，你可以使用Java代码来实现，逻辑和在XML中实现的是一样的，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line">    private ActivityMainBinding mainBinding;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        //参数为false，不共享Interpolator</span><br><span class="line">        AnimationSet set = new AnimationSet(false);</span><br><span class="line">        set.setFillAfter(true);</span><br><span class="line"></span><br><span class="line">        // Scale动画</span><br><span class="line">        ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.4f, 1.0f, 0.6f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);</span><br><span class="line">        scaleAnimation.setInterpolator(new AccelerateDecelerateInterpolator());</span><br><span class="line">        scaleAnimation.setDuration(1500);</span><br><span class="line">        set.addAnimation(scaleAnimation);</span><br><span class="line"></span><br><span class="line">        // mSet集合</span><br><span class="line">        AnimationSet mSet = new AnimationSet(true);</span><br><span class="line">        mSet.setInterpolator(new AccelerateInterpolator());</span><br><span class="line">        mSet.setDuration(1000);</span><br><span class="line">        mSet.setStartOffset(1500);</span><br><span class="line"></span><br><span class="line">        // Scale动画</span><br><span class="line">        ScaleAnimation mScaleAnimation = new ScaleAnimation(1.4f, 0.0f, 0.6f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);</span><br><span class="line">        mSet.addAnimation(mScaleAnimation);</span><br><span class="line">        // Rotate动画</span><br><span class="line">        RotateAnimation mRotateAnimation = new RotateAnimation(0.0f, -45.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);</span><br><span class="line">        mSet.addAnimation(mRotateAnimation);</span><br><span class="line"></span><br><span class="line">        set.addAnimation(mSet);</span><br><span class="line"></span><br><span class="line">        mainBinding.image.startAnimation(set);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><ul>
+<li>AnimationSet(Context context, AttributeSet attrs) ：当需要加载AttributeSet时使用的构造函数。</li>
+<li>AnimationSet(boolean shareInterpolator)：当从代码实现AnimationSet时，传入是否子动画是否共享插值器参数。</li>
+</ul>
+<h3 id="主要属性及其方法-父类以外的"><a href="#主要属性及其方法-父类以外的" class="headerlink" title="主要属性及其方法(父类以外的)"></a>主要属性及其方法(父类以外的)</h3><h4 id="Java方法"><a href="#Java方法" class="headerlink" title="Java方法"></a>Java方法</h4><ul>
+<li><strong>void addAnimation (Animation a)：</strong> 把一个子动画加到Animation Set中去。</li>
+<li><strong>long computeDurationHint ()：</strong> 获取最长时间的子动画的时间，单位毫秒。</li>
+<li><strong>List<animation> getAnimations ()：</animation></strong> 获取所有子动画对象的集合。</li>
+<li><strong>long getStartTime ()</strong>：获取动画什么时候应该播放，如果方法返回常量 START_ON_FIRST_FRAME (-1)，表明动画未播放。</li>
+<li><p>**boolean getTransformation (long currentTime, </p>
+<pre><code>Transformation t)：** 获取帧动画执行到目前时的变换信息，存到Transformation中，主要用作调试用。
+</code></pre><p>  例如我们需要当前Scale动画的变换信息：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Transformation tf = new Transformation();</span><br><span class="line">if (scaleAnimation!=null)&#123;</span><br><span class="line">    scaleAnimation.getTransformation(AnimationUtils.currentAnimationTimeMillis(), tf);</span><br><span class="line">    System.out.println(&quot;Matrix:&quot; + tf.getMatrix());</span><br><span class="line">    System.out.println(&quot;Alpha:&quot; + tf.getAlpha());</span><br><span class="line">    System.out.println(&quot;TransformationType:&quot; + tf.getTransformationType());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**void initialize (int width, </p>
+<pre><code>int height, 
+int parentWidth, 
+int parentHeight)：** 初始化动画的宽高和父动画的宽高。
+</code></pre></li>
+<li><strong>void reset ()：</strong> 重置动画的初始状态。</li>
+<li><strong>void restrictDuration (long durationMillis)：</strong> 限制动画不能超过durationMillis个毫秒。</li>
+<li><strong>boolean willChangeBounds ()：</strong> 动画是否会改变view的尺寸边界。true为会。</li>
+<li><strong>boolean willChangeTransformationMatrix ()：</strong> 动画是否会改变view的矩阵。 </li>
+</ul>
+<h2 id="七、AlphaAnimation"><a href="#七、AlphaAnimation" class="headerlink" title="七、AlphaAnimation"></a>七、AlphaAnimation</h2><p>AlphaAnimation是继承于Animation的一个动画类型，它通过控制控件的透明度变化来实现动画效果，如我们常见的淡入淡出效果就是通过AlphaAnimaiton实现。</p>
+<p>不多说，我们来通过例子看一下AlphaAnimation的实现消失动画效果：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/ezgif.com-video-to-gif%20%283%29.gif" alt="AlphaAnimation"></p>
+<p>还是有两种写法，一种在XML里定义动画的样式，一种在Java代码里实现动画的样式。</p>
+<ul>
+<li><strong>写法一</strong></li>
+</ul>
+<p>在res/anim目录下定义alpha.xml文件，在文件内写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;alpha xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:duration=&quot;2500&quot;</span><br><span class="line">    android:fromAlpha=&quot;1.0&quot;</span><br><span class="line">    android:toAlpha=&quot;0.0&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>在Activity中加载xml文件，并绑定控件播放动画：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AlphaAnimation animation = (AlphaAnimation) AnimationUtils.loadAnimation(getApplicationContext(), R.anim.alpha);</span><br><span class="line">image.startAnimation(animation);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>写法二</strong></li>
+</ul>
+<p>直接在Java代码中实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AlphaAnimation animation = new AlphaAnimation(1.0f, 0.0f);</span><br><span class="line">animation.setDuration(2500);</span><br><span class="line">mBinding.image.startAnimation(animation);</span><br></pre></td></tr></table></figure>
+<h3 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h3><ul>
+<li>AlphaAnimation(Context context, AttributeSet attrs)：当需要加载AttributeSet时使用的构造函数。</li>
+<li>AlphaAnimation(float fromAlpha, float toAlpha)：构造函数传入fromAlpha(开始时透明度)， toAlpha(结束时透明度)</li>
+</ul>
+<h3 id="主要属性及其对应方法-父类以外的"><a href="#主要属性及其对应方法-父类以外的" class="headerlink" title="主要属性及其对应方法(父类以外的)"></a>主要属性及其对应方法(父类以外的)</h3><h4 id="XML属性"><a href="#XML属性" class="headerlink" title="XML属性"></a>XML属性</h4><ul>
+<li><strong>android:fromAlpha：</strong>  动画开始前控件的透明度，取值0.0-1.0，从透明到不透明。</li>
+<li><strong>android:toAlpha：</strong> 动画结束时控件的透明度，取值0.0-1.0，从透明到不透明。</li>
+</ul>
+<h4 id="Java方法-1"><a href="#Java方法-1" class="headerlink" title="Java方法"></a>Java方法</h4><ul>
+<li><strong>boolean willChangeBounds ()：</strong> 动画是否会改变view的尺寸边界。true为会。</li>
+<li><strong>boolean willChangeTransformationMatrix ()：</strong> 动画是否会改变view的矩阵。</li>
+<li><strong>void applyTransformation (float interpolatedTime, Transformation t)：</strong> AlphaAnimation的具体实现，只能在AlphaAnimation的子类中重写来实现自己需要的动画效果。</li>
+</ul>
+<h2 id="八、ScaleAnimation"><a href="#八、ScaleAnimation" class="headerlink" title="八、ScaleAnimation"></a>八、ScaleAnimation</h2><p>ScaleAnimation是继承于Animation的一个动画类型，它通过控制控件的尺寸大小来实现动画效果，如我们常见的放大，缩小效果就是通过ScaleAnimation实现。</p>
+<p>同样，先示范：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/scale.gif" alt="ScaleAnimation"></p>
+<p>还是有两种写法，一种在XML里定义动画的样式，一种在Java代码里实现动画的样式。</p>
+<ul>
+<li><strong>写法一</strong></li>
+</ul>
+<p>在res/anim目录下定义scale.xml文件，在文件内写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:fillAfter=&quot;true&quot;&gt;</span><br><span class="line">    &lt;scale</span><br><span class="line">        android:duration=&quot;1500&quot;</span><br><span class="line">        android:fromXScale=&quot;1.0&quot;</span><br><span class="line">        android:fromYScale=&quot;1.0&quot;</span><br><span class="line">        android:pivotX=&quot;50%&quot;</span><br><span class="line">        android:pivotY=&quot;50%&quot;</span><br><span class="line">        android:toXScale=&quot;2.0&quot;</span><br><span class="line">        android:toYScale=&quot;2.0&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;scale</span><br><span class="line">        android:duration=&quot;1500&quot;</span><br><span class="line">        android:fromXScale=&quot;1.0&quot;</span><br><span class="line">        android:fromYScale=&quot;1.0&quot;</span><br><span class="line">        android:pivotX=&quot;50%&quot;</span><br><span class="line">        android:pivotY=&quot;50%&quot;</span><br><span class="line">        android:startOffset=&quot;1500&quot;</span><br><span class="line">        android:toXScale=&quot;0.0&quot;</span><br><span class="line">        android:toYScale=&quot;0.0&quot; /&gt;</span><br><span class="line">&lt;/set&gt;</span><br></pre></td></tr></table></figure>
+<p>在Activity中加载xml文件，并绑定控件播放动画：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale);</span><br><span class="line">image.startAnimation(animation);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>写法二</strong></li>
+</ul>
+<p>在Java代码中实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">AnimationSet set = new AnimationSet(false);</span><br><span class="line">set.setFillAfter(true);</span><br><span class="line"></span><br><span class="line">// 构造函数 fromX, toX, fromY, toY, pivotXType, pivotXValue, pivotYType, pivotYValue</span><br><span class="line">// pivotXType和pivotYType都有三种取值：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF, Animation.RELATIVE_TO_PARENT</span><br><span class="line">ScaleAnimation sa1 = new ScaleAnimation(1.0f, 2.0f, 1.0f, 2.0f, Animation.RELATIVE_TO_SELF,0.5f, Animation.RELATIVE_TO_SELF, 0.5f);</span><br><span class="line">sa1.setDuration(1500);</span><br><span class="line"></span><br><span class="line">ScaleAnimation sa2 = new ScaleAnimation(1.0f, 0.0f, 1.0f, 0.0f, Animation.RELATIVE_TO_SELF,0.5f, Animation.RELATIVE_TO_SELF, 0.5f);</span><br><span class="line">sa2.setDuration(1500);</span><br><span class="line">sa2.setStartOffset(1500);</span><br><span class="line"></span><br><span class="line">set.addAnimation(sa1);</span><br><span class="line">set.addAnimation(sa2);</span><br><span class="line"></span><br><span class="line">mBinding.image.startAnimation(set);</span><br></pre></td></tr></table></figure>
+<h3 id="构造函数-2"><a href="#构造函数-2" class="headerlink" title="构造函数"></a>构造函数</h3><ul>
+<li><strong>ScaleAnimation(Context context, AttributeSet attrs)：</strong> 当需要加载AttributeSet时使用的构造函数。</li>
+<li><strong>ScaleAnimation(float fromX, float toX, float fromY, float toY)：</strong> X方向放大（缩小）前的相对比例，X方向放大（缩小）后的相对比例，Y方向放大（缩小）前的相对比例，Y方向放大（缩小）后的相对比例。</li>
+<li><strong>ScaleAnimation(float fromX, float toX, float fromY, float toY, float pivotX, float pivotY)：</strong> pivotX和pivotY是缩放动画围绕的中心点，当为数值时，表明是屏幕上的绝对坐标值，当为百分数（如50%）时，为相对自己本身控件的比例值，当为百分数加p（如50%p）时，为相对父布局的比例值。</li>
+<li><strong>ScaleAnimation(float fromX, float toX, float fromY, float toY, int pivotXType, float pivotXValue, int pivotYType, float pivotYValue)：</strong> 当我们需要输入pivotXValue和pivotYValue为百分数或者百分数加p类型的时候，我们用第三个构造函数显示是不行的，这时候需要传入pivotXType和pivotYType，它们有三种取值：Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF, Animation.RELATIVE_TO_PARENT。</li>
+</ul>
+<h3 id="主要属性及其方法-父类以外的-1"><a href="#主要属性及其方法-父类以外的-1" class="headerlink" title="主要属性及其方法(父类以外的)"></a>主要属性及其方法(父类以外的)</h3><h4 id="XML属性-1"><a href="#XML属性-1" class="headerlink" title="XML属性"></a>XML属性</h4><ul>
+<li><strong>android:fromXScale：</strong>  动画开始前的X方向上的尺寸。</li>
+<li><strong>android:fromYScale：</strong>  动画开始前的Y方向上的尺寸。</li>
+<li><strong>android:toXScale：</strong>  动画结束时的X方向上的尺寸。</li>
+<li><strong>android:toYScale：</strong>  动画结束时的Y方向上的尺寸。</li>
+<li><strong>android:pivotX：</strong>  缩放动画围绕X方向的中心点，当为数值时，表明是屏幕上的绝对坐标值，当为百分数（如50%）时，为相对自己本身控件的比例值，当为百分数加p（如50%p）时，为相对父布局的比例值。</li>
+<li><strong>android:pivotY：</strong>  缩放动画围绕Y方向的中心点，当为数值时，表明是屏幕上的绝对坐标值，当为百分数（如50%）时，为相对自己本身控件的比例值，当为百分数加p（如50%p）时，为相对父布局的比例值。</li>
+</ul>
+<h4 id="Java方法-2"><a href="#Java方法-2" class="headerlink" title="Java方法"></a>Java方法</h4><ul>
+<li><strong>void initialize (int width, int height, int parentWidth, int parentHeight)：</strong> 初始化动画的宽高和父动画的宽高。</li>
+</ul>
+<h2 id="九、RotateAnimation"><a href="#九、RotateAnimation" class="headerlink" title="九、RotateAnimation"></a>九、RotateAnimation</h2><p>RotateAnimation是继承于Animation的一个动画类型，它通过控制控件旋转来实现动画效果，如我们常见的转动效果就是通过RotateAnimation实现。</p>
+<p>先看一个小demo：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/rotate.gif" alt="RotateAnimation"></p>
+<p>还是有两种写法，一种在XML里定义动画的样式，一种在Java代码里实现动画的样式。</p>
+<ul>
+<li><strong>写法一</strong></li>
+</ul>
+<p>在res/anim目录下定义rotate.xml文件，在文件内写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:fillAfter=&quot;true&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;rotate</span><br><span class="line">        android:duration=&quot;1000&quot;</span><br><span class="line">        android:fromDegrees=&quot;0&quot;</span><br><span class="line">        android:pivotX=&quot;50%&quot;</span><br><span class="line">        android:pivotY=&quot;50%&quot;</span><br><span class="line">        android:toDegrees=&quot;360&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;rotate</span><br><span class="line">        android:duration=&quot;1500&quot;</span><br><span class="line">        android:fromDegrees=&quot;0&quot;</span><br><span class="line">        android:pivotX=&quot;50%&quot;</span><br><span class="line">        android:pivotY=&quot;50%&quot;</span><br><span class="line">        android:startOffset=&quot;2000&quot;</span><br><span class="line">        android:toDegrees=&quot;-1800&quot; /&gt;</span><br><span class="line">&lt;/set&gt;</span><br></pre></td></tr></table></figure>
+<p>在Activity中加载xml文件，并绑定控件播放动画：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);</span><br><span class="line">image.startAnimation(animation);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>写法二</strong></li>
+</ul>
+<p>在Java代码中实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">AnimationSet set = new AnimationSet(false);</span><br><span class="line">set.setFillAfter(true);</span><br><span class="line"></span><br><span class="line">RotateAnimation ra1 = new RotateAnimation(0f, 360f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);</span><br><span class="line">ra1.setDuration(1000);</span><br><span class="line"></span><br><span class="line">RotateAnimation ra2 = new RotateAnimation(0f, -1800f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);</span><br><span class="line">ra2.setDuration(1500);</span><br><span class="line">ra2.setStartOffset(1000);</span><br><span class="line"></span><br><span class="line">set.addAnimation(ra1);</span><br><span class="line">set.addAnimation(ra2);</span><br><span class="line"></span><br><span class="line">mBinding.image.startAnimation(set);</span><br></pre></td></tr></table></figure>
+<h3 id="构造函数-3"><a href="#构造函数-3" class="headerlink" title="构造函数"></a>构造函数</h3><ul>
+<li><strong>RotateAnimation(Context context, AttributeSet attrs)：</strong> 当需要加载AttributeSet时使用的构造函数。</li>
+<li><strong>RotateAnimation(float fromDegrees, float toDegrees)：</strong><br>从fromDegress角度转到toDegress角度(正数为顺时针，负数为逆时针)。</li>
+<li><strong>RotateAnimation(float fromDegrees, float toDegrees, float pivotX, float pivotY)：</strong><br>加上旋转中心点，X方向中心点pivotX和Y方向中心点，取值仍为上面所介绍的三种。</li>
+<li><strong>RotateAnimation(float fromDegrees, float toDegrees, int pivotXType, float pivotXValue, int pivotYType, float pivotYValue)：</strong> 加上中心点的取值类型。</li>
+</ul>
+<h3 id="主要属性及其方法-父类以外的-2"><a href="#主要属性及其方法-父类以外的-2" class="headerlink" title="主要属性及其方法(父类以外的)"></a>主要属性及其方法(父类以外的)</h3><h4 id="XML属性-2"><a href="#XML属性-2" class="headerlink" title="XML属性"></a>XML属性</h4><ul>
+<li><strong>android:fromDegrees：</strong>  动画开始前的角度。</li>
+<li><strong>android:toDegrees：</strong>  动画结束时的角度。</li>
+<li><strong>android:pivotX：</strong>  缩放动画围绕X方向的中心点，当为数值时，表明是屏幕上的绝对坐标值，当为百分数（如50%）时，为相对自己本身控件的比例值，当为百分数加p（如50%p）时，为相对父布局的比例值。</li>
+<li><strong>android:pivotY：</strong>  缩放动画围绕Y方向的中心点，当为数值时，表明是屏幕上的绝对坐标值，当为百分数（如50%）时，为相对自己本身控件的比例值，当为百分数加p（如50%p）时，为相对父布局的比例值。</li>
+</ul>
+<h4 id="Java方法-3"><a href="#Java方法-3" class="headerlink" title="Java方法"></a>Java方法</h4><ul>
+<li><strong>void initialize (int width, int height, int parentWidth, int parentHeight)：</strong> 初始化动画的宽高和父动画的宽高。</li>
+<li><strong>void applyTransformation (float interpolatedTime, Transformation t)：</strong> RotateAnimation的具体实现，只能在RotateAnimation的子类中重写来实现自己需要的动画效果。</li>
+</ul>
+<h3 id="十、TranslateAnimation"><a href="#十、TranslateAnimation" class="headerlink" title="十、TranslateAnimation"></a>十、TranslateAnimation</h3><p>TranslateAnimation是继承于Animation的一个动画类型，它通过控制控件位置变化来实现动画效果，如我们常见的位移效果就是通过TranslateAnimation实现。</p>
+<p>TranslationAnimation相关的小Demo，围绕四周转动：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/translate.gif" alt="TranslateAnimation"></p>
+<p>只展示一种写法，Java代码实现方式同上：</p>
+<p>在res/anim目录下定义translate.xml文件，在文件内写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:fillAfter=&quot;true&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;translate</span><br><span class="line">        android:duration=&quot;1000&quot;</span><br><span class="line">        android:fromXDelta=&quot;0&quot;</span><br><span class="line">        android:fromYDelta=&quot;0&quot;</span><br><span class="line">        android:toXDelta=&quot;92%p&quot;</span><br><span class="line">        android:toYDelta=&quot;0&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;translate</span><br><span class="line">        android:duration=&quot;1000&quot;</span><br><span class="line">        android:fromXDelta=&quot;0&quot;</span><br><span class="line">        android:fromYDelta=&quot;0&quot;</span><br><span class="line">        android:startOffset=&quot;1000&quot;</span><br><span class="line">        android:toXDelta=&quot;0&quot;</span><br><span class="line">        android:toYDelta=&quot;94%p&quot; /&gt;</span><br><span class="line">    &lt;translate</span><br><span class="line">        android:duration=&quot;1000&quot;</span><br><span class="line">        android:fromXDelta=&quot;0&quot;</span><br><span class="line">        android:fromYDelta=&quot;0&quot;</span><br><span class="line">        android:startOffset=&quot;2000&quot;</span><br><span class="line">        android:toXDelta=&quot;-92%p&quot;</span><br><span class="line">        android:toYDelta=&quot;0&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;translate</span><br><span class="line">        android:duration=&quot;1000&quot;</span><br><span class="line">        android:fromXDelta=&quot;0&quot;</span><br><span class="line">        android:fromYDelta=&quot;0&quot;</span><br><span class="line">        android:startOffset=&quot;3000&quot;</span><br><span class="line">        android:toXDelta=&quot;0&quot;</span><br><span class="line">        android:toYDelta=&quot;-94%p&quot; /&gt;</span><br><span class="line">&lt;/set&gt;</span><br></pre></td></tr></table></figure>
+<p>在Activity中加载xml文件，并绑定控件播放动画：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate);</span><br><span class="line">mBinding.image.startAnimation(animation);</span><br></pre></td></tr></table></figure>
+<h3 id="构造函数-4"><a href="#构造函数-4" class="headerlink" title="构造函数"></a>构造函数</h3><ul>
+<li><strong>TranslateAnimation(Context context, AttributeSet attrs)：</strong> 当需要加载AttributeSet时使用的构造函数。</li>
+<li><strong>TranslateAnimation(float fromXDelta, float toXDelta, float fromYDelta, float toYDelta)：</strong> fromXDelta（动画开始时的X方向上的位置），toXDelta（动画结束始时的X方向上的位置），fromYDelta（动画开始时的Y方向上的位置），toYDelta（动画结束始时的Y方向上的位置）</li>
+<li><strong>TranslateAnimation(int fromXType, float fromXValue, int toXType, float toXValue, int fromYType, float fromYValue, int toYType, float toYValue)：</strong> 加上类型参数。</li>
+</ul>
+<h3 id="主要属性及其方法-父类以外的-3"><a href="#主要属性及其方法-父类以外的-3" class="headerlink" title="主要属性及其方法(父类以外的)"></a>主要属性及其方法(父类以外的)</h3><h4 id="Java方法-4"><a href="#Java方法-4" class="headerlink" title="Java方法"></a>Java方法</h4><ul>
+<li><strong>void initialize (int width, int height, int parentWidth, int parentHeight)：</strong> 初始化动画的宽高和父动画的宽高。</li>
+<li><strong>void applyTransformation (float interpolatedTime, Transformation t)：</strong> TranslateAnimation的具体实现，只能在TranslateAnimation的子类中重写来实现自己需要的动画效果。</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>对于很多比较少接触动画的同学，可能都会比较反感，因为觉得动画篇的东西又多又难学，其实不然，就像我们这篇所介绍的Tween Animation，虽然有很多种动画类型，但是几种都是基于父类Animation类，然后在它的基础上进行了稍微扩展，所以当我们认真静下来去看的时候，我们会发现，其实也不过如此。Animation在实际开发中非常常见，尤其本篇所说的最基本的Tween Animation。在Android已经达到了如此成熟的今天，市场上的应用很大一部分依靠炫酷的动画效果来吸引用户，所以掌握动画会帮助你在日后开发中有很大的帮助，不说其他，早点下班是必须的。</p>
+
+    </div>
+</div></div>
+    </div>
+    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
+    <img id="top" src="/images/up-circle.svg" alt="top">
+    
+  </body>
+</html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+    scroll.init()
+    siteSearch.init()
+  }
+</script>

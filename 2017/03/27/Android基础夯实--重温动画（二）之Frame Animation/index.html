@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="vvVgSQUzPU">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
+    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
+    
+    <title>
+       Android基础夯实--重温动画（二）之Frame Animation -  特雷西多士
+    </title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    
+      <link rel="icon" href="/images/favicon.ico">
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
+          </div>
+          <ul>
+            
+              <li><a href="/"> 首页 </a></li>
+            
+              <li><a href="/archives"> 归档 </a></li>
+            
+              <li><a href="/about"> 关于 </a></li>
+            
+              <li><a href="/atom.xml"> RSS </a></li>
+            
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search">
+            </li>
+          </ul>
+           
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">2.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Demo"><span class="post-toc-number">3.</span> <span class="post-toc-text">Demo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果图"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">效果图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码实现"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Frame-Animation"><span class="post-toc-number">4.</span> <span class="post-toc-text">Frame Animation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件位置"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">文件位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标签"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">标签</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AnimationDrawable"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">AnimationDrawable</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父类"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">父类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#接口"><span class="post-toc-number">4.5.2.</span> <span class="post-toc-text">接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML文件中的变量"><span class="post-toc-number">4.5.3.</span> <span class="post-toc-text">XML文件中的变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.5.4.</span> <span class="post-toc-text">方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li></ol> 
+          
+        </div>
+      </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            Android基础夯实--重温动画（二）之Frame Animation
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2017-03-26T16:00:00.000Z" itemprop="datePublished">
+            2017-03-27
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/动画/">动画</a><span class="post-tag-list-count">5</span></li></ul>
+        
+    </div>
+    
+    <div class="post-entry">
+        <p><em>心灵鸡汤：天下事有难易乎，为之，则难者亦易矣；不为，则易者亦难矣。</em></p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>当你已经掌握了Tween Animation之后，再来看Frame Animation，你就会顿悟，喔，原来Frame Animation简单多了，那么恭喜你，你已经在Animation这条路上走得越来越远了，当你花十来分钟认真看完这篇文章，你就已经走完了动画这条小路的2/3。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>我们都知道，在Android系统中，官方给我们提供了两种类型的动画：<strong>属性动画(Property Animation)</strong> 和 <strong>视图动画(View Animation)</strong>，而视图动画又包含了两种类型：补间动画(Tween animation) 和 帧动画(Frame animation)。</p>
+<p>在上一节我们已经对Tween Animation进行了详细讲解，这一片，我会给大家介绍视图动画的另一种 Frame Animation。</p>
+<p>在开发中，除了常用的Tween Animation以外，我们还会用到Frame Animation，就是我们所说的帧动画，之所以要实现帧动画是因为它可以实现类似电影的动态效果，因为我们平时所拍的视频也是通过一张张照片插入每一帧，串联起来，从而实现连续播放的视觉效果，而这Tween Animation是无法实现，只能通过Frame Animation来实现。例如我们常见的App动态引导页，很多都是通过Frame Animation来实现的。</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/ezgif.com-resize.gif" alt="引导页"></p>
+<p>总体来说，Frame Animation实现起来也是比较简单，本文也是主要做一个抛砖引玉，只做基本介绍，更多进阶知识需要大家日后摸索，更权威解释可以看官方文档：<a href="https://developer.android.com/guide/topics/resources/animation-resource.html#Frame" target="_blank" rel="noopener">Frame Animation</a>。以下先通过Demo给大家更直观地展示Frame Animation。</p>
+<p>本文主要对View Animation的Frame Animation做介绍，如果大家有兴趣，可以继续阅读本动画系列其他相关文章，作者也在不断更新完善相关内容，希望大家可以指出有误之处。</p>
+<h1 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h1><p>这个Demo主要是使用Frame Animation来实现ImageView播放gif图效果。</p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="http://7xs0af.com1.z0.glb.clouddn.com/sfdf.gif" alt="效果图"></p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><ol>
+<li>首先在res/drawable/目录下，增添一个frame.xml文件，里面主要写每一帧播放哪一张照片。最外层标签必须是animation-list，子标签item对应每一帧，每一个item里面的drawable属性对应图片位置、duration对应一帧的时长。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    android:oneshot=&quot;false&quot;&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/g1&quot;</span><br><span class="line">        android:duration=&quot;200&quot; /&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/g2&quot;</span><br><span class="line">        android:duration=&quot;200&quot; /&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/g3&quot;</span><br><span class="line">        android:duration=&quot;200&quot; /&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/g4&quot;</span><br><span class="line">        android:duration=&quot;200&quot; /&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/g5&quot;</span><br><span class="line">        android:duration=&quot;200&quot; /&gt;</span><br><span class="line">    &lt;item</span><br><span class="line">        android:drawable=&quot;@drawable/g6&quot;</span><br><span class="line">        android:duration=&quot;200&quot; /&gt;</span><br><span class="line">&lt;/animation-list&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>在Activity中，实现如下代码：</p>
+<p> //将控件背景设置为我们的AnimationDrawable资源文件<br> image.setBackgroundResource(R.drawable.frame);<br> mBinding.play.setOnClickListener(new View.OnClickListener() {</p>
+<pre><code>@Override
+public void onClick(View v) {
+    //拿到要编译成AnimationDrawable的背景
+    AnimationDrawable imageAnimation = (AnimationDrawable)image.getBackground();
+    //开始动画
+    imageAnimation.start();
+}
+</code></pre><p> });</p>
+</li>
+</ol>
+<h1 id="Frame-Animation"><a href="#Frame-Animation" class="headerlink" title="Frame Animation"></a>Frame Animation</h1><p>在Android的官方文档中，Google对Frame Animation的讲解只是用了比较小的篇幅，可能是因为过于简单，当然，大家通过我上面所说的例子也可以看得出Frame Animation的使用也是非常的简单，下面主要介绍Frame Animation的要点。</p>
+<h2 id="文件位置"><a href="#文件位置" class="headerlink" title="文件位置"></a>文件位置</h2><p>在资源文件夹下：res/drawable/filename.xml</p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>在上面的例子我们可以了解到，在Activity中，我们是通过image.getBackground()获取到的对象转为了AnimationDrawable，这是因为在我们的xml文件被编译器编译之后就变成了 <a href="https://developer.android.com/reference/android/graphics/drawable/AnimationDrawable.html" target="_blank" rel="noopener">AnimationDrawable</a>类。</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:oneshot=[&quot;true&quot; | &quot;false&quot;] &gt;
+    &lt;item
+        android:drawable=&quot;@[package:]drawable/drawable_resource_name&quot;
+        android:duration=&quot;integer&quot; /&gt;
+&lt;/animation-list&gt;
+</code></pre><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p><strong> &lt; animation-list &gt; </strong> ：外层必须要的标签，里面包含一个以上的<item>标签</item></p>
+<ul>
+<li>属性：<ol>
+<li>android:oneshot：true则只运行一次，false则重复动画。</li>
+</ol>
+</li>
+</ul>
+<p><strong> &lt; item &gt; </strong> ：每一帧的动画，必须是<animation-list>的子标签。</animation-list></p>
+<ul>
+<li>属性：<ol>
+<li>android:drawable：对应资源文件。</li>
+<li>android:duration：每一帧时长。</li>
+</ol>
+</li>
+</ul>
+<h2 id="AnimationDrawable"><a href="#AnimationDrawable" class="headerlink" title="AnimationDrawable"></a>AnimationDrawable</h2><p>AnimationDrawable就是对应于我们自身定义的xml文件，在Java代码中将xml对象转为了AnimationDrawable之后，我们就可以通过它来获取xml文件里面的属性。</p>
+<h3 id="父类"><a href="#父类" class="headerlink" title="父类"></a>父类</h3><p>AnimationDrawable继承于Object -&gt; Drawable -&gt; DrawableContainer。</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>实现了Runnable, Animatable接口。    </p>
+<h3 id="XML文件中的变量"><a href="#XML文件中的变量" class="headerlink" title="XML文件中的变量"></a>XML文件中的变量</h3><ul>
+<li><strong>android:drawable：</strong> 用于该帧的图片。</li>
+<li><strong>android:duration：</strong> 每一帧的时长。</li>
+<li><strong>android:oneshot：</strong> true则只运行一次，false则重复动画。</li>
+<li><strong>android:variablePadding：</strong> 如果true，允许drawable文件的当前状态改变。</li>
+<li><strong>android:visible：</strong> 是否可见。</li>
+</ul>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li><strong>void addFrame (Drawable frame, int duration)：</strong> 添加一帧动画到动画里面。</li>
+<li><strong>int getDuration (int i)：</strong> 获取第i帧的时长。</li>
+<li><strong>Drawable getFrame (int index)：</strong> 获取第i帧的Drawbale。</li>
+<li><strong>int getNumberOfFrames ()：</strong> 获取共有多少帧。</li>
+<li><strong>void inflate (Resources r, XmlPullParser parser, AttributeSet attrs, Resources.Theme theme)：</strong> 从XML资源里面加载一个Drawable文件。</li>
+<li><strong>boolean isOneShot ()：</strong> 判断是否单次播放。</li>
+<li><strong>boolean isRunning ()：</strong> 判断动画是否还在运行。</li>
+<li><strong>Drawable mutate ()：</strong> 一个drawable如果使用了mutate()方法，那么对这个drawable属性（包括设置drawable的透明度）修改将不会共享。</li>
+<li><strong>void setOneShot (boolean oneShot)：</strong> 设置动画播放一次或者循环。</li>
+<li><strong>boolean setVisible (boolean visible, boolean restart)：</strong> 设置该AnimationDrawable是否可见。</li>
+<li><strong>void start ()：</strong> 播放。</li>
+<li><strong>void stop ()：</strong> 停止。</li>
+<li><strong>void unscheduleSelf (Runnable what)：</strong> 让动画重新回到-1帧。</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Frame Animation总体来说比较简单，通过XML的划分帧，在Java代码中获取到编译的AnimationDrawable，然后进行播放，难点不多，却是很多引导页的常用实现方法。</p>
+
+    </div>
+</div></div>
+    </div>
+    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
+    <img id="top" src="/images/up-circle.svg" alt="top">
+    
+  </body>
+</html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+    scroll.init()
+    siteSearch.init()
+  }
+</script>

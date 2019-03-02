@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="vvVgSQUzPU">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
+    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
+    
+    <title>
+       Android基础夯实--重温动画（五）之属性动画 ObjectAnimator详解 -  特雷西多士
+    </title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    
+      <link rel="icon" href="/images/favicon.ico">
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
+          </div>
+          <ul>
+            
+              <li><a href="/"> 首页 </a></li>
+            
+              <li><a href="/archives"> 归档 </a></li>
+            
+              <li><a href="/about"> 关于 </a></li>
+            
+              <li><a href="/atom.xml"> RSS </a></li>
+            
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search">
+            </li>
+          </ul>
+           
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、摘要</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、-概述"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、 概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-差异"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 差异</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-propertyName"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 propertyName</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-Scale"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">2.2.1 Scale</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-Translation"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">2.2.2 Translation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3-Alpha"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">2.2.3 Alpha</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-4-Rotation"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">2.2.4 Rotation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-5-图片变化"><span class="post-toc-number">2.2.5.</span> <span class="post-toc-text">2.2.5 图片变化</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-实例化ObjectAnimator方法"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 实例化ObjectAnimator方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-1-ofInt"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">2.3.1 ofInt()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-2-ofFloat"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">2.3.2 ofFloat()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-3-ofArgb"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">2.3.3 ofArgb()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-4-ofPropertyValuesHolder"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">2.3.4 ofPropertyValuesHolder()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-4-其他实例化方法"><span class="post-toc-number">2.3.5.</span> <span class="post-toc-text">2.3.4 其他实例化方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol> 
+          
+        </div>
+      </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            Android基础夯实--重温动画（五）之属性动画 ObjectAnimator详解
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2017-04-24T16:00:00.000Z" itemprop="datePublished">
+            2017-04-25
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/动画/">动画</a><span class="post-tag-list-count">5</span></li></ul>
+        
+    </div>
+    
+    <div class="post-entry">
+        <p><em>只有一种真正的英雄主义</em></p>
+<h1 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h1><p>ObjectAnimator是ValueAnimator的子类，它和ValueAnimator一样，同样具有计算属性值的功能，但对比ValueAnimator，它会更加容易使用，因为它不再需要设置监听器来监听值的变化，因为这个工程对于ObjectAnimator来说，是自动的。这篇文章主要通过详细讲解ObejctAniamtior，加深大家对属性动画的认识，让我们对于动画的技巧掌握得更扎实。</p>
+<p>如果你想了解更权威的解释，可以查看官方文档：<a href="https://developer.android.com/guide/topics/graphics/prop-animation.html#property-vs-view" target="_blank" rel="noopener">Property Animation</a>。</p>
+<p>本文主要对ValueAnimator做介绍，如果大家有兴趣，可以继续阅读本动画系列其他相关文章，作者也在不断更新完善相关内容，希望大家可以指出有误之处。</p>
+<h1 id="二、-概述"><a href="#二、-概述" class="headerlink" title="二、 概述"></a>二、 概述</h1><p>在上节我们知道了在属性动画中，ValueAnimator是通过监听值的变化，然后实现控件的动画播放。在代码过程中，是通过设置初始值、结束值和动画时间，然后通过加速器返回当前的进度的，再经过Evaluator根据进度计算出具体的值，然后我们在监听器里面不断监听拿到这个值，然后修改控件的属性值，从而实现动画。</p>
+<p>ObjectAnimator作为ValueAnimator的子类，所以ValueAnimator的很多方法，在ObjectAnimator中也能使用，但是ObjectAnimator覆写了父类的几个方法，如ofInt()，ofFloat()，ofArgb()等。它和ValueAnimator同样也是首先设置初始值、结束值和动画时长，但是同时也绑定了目标控件和属性然后通过加速器返回当前的进度的，再经过Evaluator根据进度计算出具体的值，最后根据属性拼接set函数并反射调用，并将当前值作为参数传入，实现动画。</p>
+<p>对比这两个Animator，ObjectAnimator是对ValueAnimator的再封装，它的封装帮助我们避免了使用Listener的麻烦，更加精简了代码，使开发者可以更加专注动画的逻辑代码。</p>
+<h2 id="2-1-差异"><a href="#2-1-差异" class="headerlink" title="2.1 差异"></a>2.1 差异</h2><p>以下通过Demo来对比ObjectAnimator和ValueAnimator的区别，我们同样使用ObjectAnimator和ValueAnimator实现同样的效果，控件水平方向上的不断左右移动，最后返回原点（如下图）。</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/saa.gif" alt="Demo"></p>
+<p>通过上一节的学习，我们可以轻松写出ValueAnimator实现的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ValueAnimator animator = ValueAnimator.ofFloat(0, 300, -100, 200, -50, 0);</span><br><span class="line">animator.setDuration(2000);</span><br><span class="line">animator.start();</span><br><span class="line">animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onAnimationUpdate(ValueAnimator animation) &#123;</span><br><span class="line">        mBinding.image.setTranslationX((Float) animation.getAnimatedValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在ObjectAnimator中，我们可以用更简单的代码来实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;translationX&quot;, 0, 300, -100, 200, -50, 0);</span><br><span class="line">animator.setDuration(2000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<p>通过对比，我们可以看到，ObjectAnimator在实现动画上的代码上会更加简洁，但是实现的效果都是一样的，之所以是这样，是因为ObjectAnimator覆写了ValueAnimator 的ofFloat方法，并对其进行了封装。所以，我们看到ObjectAnimator实现代码上都减少了Listener代码的编写。</p>
+<p>大家第一次看到ObjectAnimator可能看到代码比较陌生，上面的一段代码什么意思呢？首先我们看到第一个参数，就是我们动画的目标控件，也就是这个动画要让哪个控件来实现，我这里是DATABinding的一个写法，其实就是我们findViewById得到的一个view，非常的简单；第二个参数是动画要实现的效果，我这里是translationX，即水平x方向上的位移；第三个参数为可变参数，即动画变化过程的系列值，跟ValueAnimator是一样的意思。</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720170327113616.png" alt="参数"></p>
+<h2 id="2-2-propertyName"><a href="#2-2-propertyName" class="headerlink" title="2.2 propertyName"></a>2.2 propertyName</h2><p>在2.1的介绍过后，大家可能还会有疑问，对于上面ofFloat的第二个参数是一个字符串常量，这个字符串常量我们是怎么获取的呢？其实，在ObejctAnimator中，无论ofFloat，ofInt，ofArgb等方法，都有一个叫做propertyName的参数，也就是我们上面对应的第二个参数，这个参数是一个字符串，之所以动画会实现该字符串的效果是因为ObjectAnimator通过反射机制，找到了ImageView中的setTranslationX()这个方法，然后每个十几ms就调用这个方法，并把我们的变化的值传到里面去，从而实现动画效果。</p>
+<p>所以到这里大家可以知道，当我们需要用ObjectAnimator实现一个控件的动画效果时，我们首先需要做的就是在这个控件中找到对应的setXXX()驼峰式写法的方法，只有控件拥有相应的setXXX()方法， 我们传入的propertyName参数才起到作用。那么这时候就有同学会问，类似Demo中的“translationX”，它对应的方法是setTranslationX()，那我们应该传入“TranslationX”还是“translationX”，其实都是可以的，因为它内部封装在使用反射机制调用方法时，涵盖了两种写法，所以第一个字母可以大小写，但是后面的字母必须全部对应大小写。</p>
+<p>其次还要同学会疑问，我们怎么知道在实例化ObjectAnimator时应该通过ofFloat还是ofInt还是其他呢？其实跟我们的ValueAnimator一样，我们调用哪个方法来实例化都是要考虑我们要改变的控件哪个属性的。例如，我们上面的例子是改变水平方向上的位移，那么ObjectAnimator最终是调用控件的setTranslationX(float translationX)，我们可以看到传入参数是float型，那么毫无疑问，我们这里需要使用ofFloat了，其它以此类推。下面给大家举例一些常用的propertyName。</p>
+<h3 id="2-2-1-Scale"><a href="#2-2-1-Scale" class="headerlink" title="2.2.1 Scale"></a>2.2.1 Scale</h3><p>View中关于伸缩变化(Scale)有以下两个方法：</p>
+<ul>
+<li>public void setScaleX(float scaleX)：X方向上伸缩。</li>
+<li>public void setScaleY(float scaleY)：Y方向上伸缩。</li>
+</ul>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/mscale.gif" alt="Scale"></p>
+<p>所以对应代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;scaleX&quot;, 0f, 1.5f, 2f, 1.5f, 0f, 0.5f, 0.2f, 1f);</span><br><span class="line">mBinding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);</span><br><span class="line">animator.setDuration(2000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">View view = new View(MyObjectAnimator.this);</span><br><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;scaleY&quot;, 0f, 1.5f, 2f, 1.5f, 0f, 0.5f, 0.2f, 1f);</span><br><span class="line">animator.setDuration(2000);</span><br><span class="line">mBinding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-2-Translation"><a href="#2-2-2-Translation" class="headerlink" title="2.2.2 Translation"></a>2.2.2 Translation</h3><p>View中关于位置变化(Translation)有以下两个方法：</p>
+<ul>
+<li>public void setTranslationX(float translationX)：X轴上位移。</li>
+<li>public void setTranslationY(float translationY)：Y轴上位移。</li>
+<li>public void setTranslationZ(float translationZ)：设置阴影。</li>
+</ul>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/translation.gif" alt="Translation"></p>
+<p>所以对应代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;translationX&quot;, 0, 100, -100, 0);</span><br><span class="line">mBinding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);</span><br><span class="line">animator.setDuration(2000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;translationY&quot;, 0, 100, -100, 0);</span><br><span class="line">animator.setDuration(2000);</span><br><span class="line">mBinding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-3-Alpha"><a href="#2-2-3-Alpha" class="headerlink" title="2.2.3 Alpha"></a>2.2.3 Alpha</h3><p>View中关于透明度变化(Alpha)有以下方法：</p>
+<ul>
+<li>public void setAlpha(float alpha);</li>
+</ul>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/alpha.gif" alt="Alpha"></p>
+<p>所以对应代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;alpha&quot;, 0, 0.5f, 1.0f);</span><br><span class="line">mBinding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);</span><br><span class="line">animator.setDuration(2000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-4-Rotation"><a href="#2-2-4-Rotation" class="headerlink" title="2.2.4 Rotation"></a>2.2.4 Rotation</h3><p>View中关于角度变化(Rotation)有以下方法：</p>
+<ul>
+<li>public void setRotation(float rotation)：关于Z轴旋转。</li>
+<li>public void setRotationX(float rotationX)：关于X轴旋转。</li>
+<li>public void setRotationY(float rotationY)：关于Y轴旋转。</li>
+</ul>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/saaaass.gif" alt="Rotation"></p>
+<p>所以对应代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;rotation&quot;, 0, 180, 0, -180, 0);</span><br><span class="line">mBinding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);</span><br><span class="line">animator.setDuration(3000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;rotationX&quot;, 0, 180, 0, -180, 0);</span><br><span class="line">animator.setDuration(3000);</span><br><span class="line">mBinding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;rotationY&quot;, 0, 180, 0, -180, 0);</span><br><span class="line">animator.setDuration(3000);</span><br><span class="line">mBinding.image.setScaleType(ImageView.ScaleType.CENTER_CROP);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-5-图片变化"><a href="#2-2-5-图片变化" class="headerlink" title="2.2.5 图片变化"></a>2.2.5 图片变化</h3><p>View中关于图片的其中一个方法是setBackgroundResource，同样我们也可以通过ObjectAnimator来实现一个图片变化的效果：</p>
+<ul>
+<li>public void setBackgroundResource(@DrawableRes int resid)</li>
+</ul>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/gggg.gif" alt="图片变化"></p>
+<p>对应代码为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofInt(mBinding.image, &quot;backgroundResource&quot;, R.drawable.a1, R.drawable.a2, R.drawable.a3);</span><br><span class="line">animator.setDuration(2000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<p>其实还有很多set方法可以可以实现动画效果，这里就不再一一列举，大家有兴趣可以自己去深入研究，你会发现ObjectAnimator可以非常简单快捷地实现动画效果。</p>
+<h2 id="2-3-实例化ObjectAnimator方法"><a href="#2-3-实例化ObjectAnimator方法" class="headerlink" title="2.3 实例化ObjectAnimator方法"></a>2.3 实例化ObjectAnimator方法</h2><p>在ValueAnimator中，我们知道实例化并不是通过new一个对象出来，而是通过ofInt，ofFloat，ofObject等方法。在ObjectAnimator中同样如此，因为ofInt，ofFloat，ofObject等方法的内部帮我们封装了实例化过程，所以我们可以直接调用来拿到一个实例化的对象。在ObjectAnimator中，大概有以下几种实例化方法：</p>
+<h3 id="2-3-1-ofInt"><a href="#2-3-1-ofInt" class="headerlink" title="2.3.1 ofInt()"></a>2.3.1 ofInt()</h3><p>通过ofInt()来实例化对象，那么属性值必须为int型，通常我们通过ofInt可以实现很多动画，例如实现颜色渐变等；ofInt()也有几个重载函数，这里介绍其中一个：</p>
+<ul>
+<li>ofInt(Object target, String propertyName, int… values)：对目标对象T的property属性值进行改变。</li>
+</ul>
+<p>例如颜色值的变化。</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/color.gif" alt="ofInt"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofInt(mBinding.image, &quot;backgroundColor&quot;,  0xffff00ff, 0xffffff00, 0xffff00ff);</span><br><span class="line">animator.setEvaluator(new ArgbEvaluator());</span><br><span class="line">animator.setDuration(4000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-2-ofFloat"><a href="#2-3-2-ofFloat" class="headerlink" title="2.3.2 ofFloat()"></a>2.3.2 ofFloat()</h3><p>ofFloat()来实例化对象，那么属性值必须为float型，通常我们通过ofFloat可以实现很多动画，例如实现位置变化等；ofFloat()也有几个重载函数，这里介绍其中一个：</p>
+<ul>
+<li>ObjectAnimator ofFloat (Object target, String xPropertyName, String yPropertyName, Path path)：：对目标对象T的property属性值进行改变。</li>
+</ul>
+<p>例如实现一个贝塞尔曲线：</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/path.gif" alt="ofFloat"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Path path = new Path();</span><br><span class="line">path.quadTo(800, 200, 800, 800);</span><br><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(mBinding.image, &quot;x&quot;, &quot;y&quot;, path);</span><br><span class="line">animator.setDuration(4000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-3-ofArgb"><a href="#2-3-3-ofArgb" class="headerlink" title="2.3.3 ofArgb()"></a>2.3.3 ofArgb()</h3><p>我们在ValueAnimator中已经提到了ofArgb()可以帮助我们实现颜色的渐变效果，这里同样是可以通过ofArgb()来实现动画效果。上面我们已经在ofInt里面实现了颜色渐变，但是代码稍多，所以Google在API LEVEL 21之后增加了这个方法ofArgb()。通过这个方法我们更容易地实现颜色演变，因为它里面封装了对ArgbEvaluator的使用，实现2.3.1的效果，大家可以对比一下代码：</p>
+<p><img src="http://7xrwkh.com1.z0.glb.clouddn.com/color.gif" alt="ofInt"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator animator = ObjectAnimator.ofArgb(mBinding.image, &quot;BackgroundColor&quot;, 0xffff00ff, 0xffffff00, 0xffff00ff);</span><br><span class="line">animator.setDuration(4000);</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-4-ofPropertyValuesHolder"><a href="#2-3-4-ofPropertyValuesHolder" class="headerlink" title="2.3.4 ofPropertyValuesHolder()"></a>2.3.4 ofPropertyValuesHolder()</h3><p>认真的同学都会发现，在ValueAnimator和ObjectAnimator中，都有一个实例化方法，就是ofPropertyValuesHolder()方法，由于在ObjectAnimator中使用更为广泛，所以这里以ObjectAnimator的ofPropertyValuesHolder为例子，当大家懂了之后，那么大家对ValueAnimator的ofPropertyValuesHolder也应该理解了。</p>
+<p>在ObjectAnimator中，我们可以通过</p>
+<ul>
+<li>ObjectAnimator ofPropertyValuesHolder (Object target, <pre><code>PropertyValuesHolder... values)
+</code></pre></li>
+</ul>
+<p>来实例化一个ObjectAnimator。</p>
+<p>我们可以看到，它和我们其他的实例化方法差不多，都需要设置一个target（目标控件），还有一组PropertyValuesHolder类型的值，但是不需要设置属性，target我们知道了，是要实现动画的控件，那么PropertyValuesHolder是什么呢？我们来看一下官方文档：</p>
+<blockquote>
+<p>This class holds information about a property and the values that that property should take on during an animation. PropertyValuesHolder objects can be used to create animations with ValueAnimator or ObjectAnimator that operate on several different properties in parallel.</p>
+</blockquote>
+<p>什么意思呢？</p>
+<blockquote>
+<p>这是一个包含一个属性信息的类，并且它的值应该用到一个动画里面。PropertyValuesHolder对象可以配合ValueAnimator和ObjectAnimator来实现不同属性的并行的动画。</p>
+</blockquote>
+<p>听起来有点别扭，也就是说，当我们需要实现一个包含多种属性的同时播放的动画时，我们就可以使用ofPropertyValuesHolder来实例化一个Animator，当然，拥有一个属性时也是可以的，为什么这么说？ofFloat()的内部实现其实就是将传进来的参数封装成PropertyValuesHolder实例来保存动画状态。所以可见PropertyValuesHolder是多么有用了吧。</p>
+<p>在PropertyValuesHolder这个类里面，同样也有ofInt()，ofFloat()，ofKeyframe()等方法来实例化，举个例子：</p>
+<p><img src="http://7xs0af.com1.z0.glb.clouddn.com/property.gif" alt="PropertyValuesHolder"></p>
+<p>代码也非常简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PropertyValuesHolder rotationHolder = PropertyValuesHolder.ofFloat(&quot;Rotation&quot;, 90, -90, 45, -45, 60, -60);</span><br><span class="line">PropertyValuesHolder colorHolder = PropertyValuesHolder.ofInt(&quot;BackgroundColor&quot;, 0xff55aa11, 0xff115633, 0xff123344, 0xffaabbcc);</span><br><span class="line">PropertyValuesHolder scaleXHolder = PropertyValuesHolder.ofFloat(&quot;ScaleX&quot;, 1f, 1.1f, 1.2f, 1.5f, 1.8f, 1.5f, 1.2f, 1.1f, 1);</span><br><span class="line">PropertyValuesHolder scaleYHolder = PropertyValuesHolder.ofFloat(&quot;ScaleY&quot;, 1f, 1.1f, 1.2f, 1.5f, 1.8f, 1.5f, 1.2f, 1.1f, 1);</span><br><span class="line">ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(mBinding.image, rotationHolder, colorHolder, scaleXHolder, scaleYHolder);</span><br><span class="line">animator.setDuration(3500);</span><br><span class="line">animator.setInterpolator(new AccelerateInterpolator());</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
+<p>通过代码我们可以知道，通过ofPropertyValuesHolder来实例化，其实就是将不同动画效果分配到一个个PropertyValuesHolder中去，然后把多个不同的PropertyValuesHolder对象在初始化时传入，最终实现多个效果并行播放。</p>
+<h3 id="2-3-4-其他实例化方法"><a href="#2-3-4-其他实例化方法" class="headerlink" title="2.3.4 其他实例化方法"></a>2.3.4 其他实例化方法</h3><p>在ObjectAnimator中提供了非常丰富的实例化方法，除了以上三个之外，在API LEVEL 21之后，Google推出了更多的实例化方法，例如：</p>
+<ul>
+<li>ofMultiFloat()</li>
+<li>ofMultiInt()</li>
+<li>ofObject()</li>
+<li>ofPropertyValuesHolder()</li>
+</ul>
+<p>在上面三个(2.3.1-2.3.3)不足以解决我们需求的时候，我们可以到官方文档参考这三个比较新的实例化方法，它们也是为了简化操作而进行了更高度的封装，所以这也有助于帮助我们用更少的代码来实现动画。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ObjectAnimator作为ValueAnimator的子类，在代码上对ValueAnimator进行了进一步的封装，使我们在日常使用中更加简单，但是正是因为封装，使得我们在一些特殊情况下使用ObjectAnimator使用上还是有一定的局限性，所以在大家掌握了ValueAnimator和ObjectAnimator的基本使用后，还需要自己通过写小Demo来加深和进阶使用，这样在我们用到时方能得心应手。</p>
+
+    </div>
+</div></div>
+    </div>
+    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
+    <img id="top" src="/images/up-circle.svg" alt="top">
+    
+  </body>
+</html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+    scroll.init()
+    siteSearch.init()
+  }
+</script>
