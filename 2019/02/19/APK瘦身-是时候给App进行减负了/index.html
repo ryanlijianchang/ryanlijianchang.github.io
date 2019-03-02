@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="vvVgSQUzPU">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
+    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
+    
+    <title>
+       APK瘦身-是时候给App进行减负了 -  特雷西多士
+    </title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    
+      <link rel="icon" href="/images/favicon.ico">
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="main-left">
+        <div id="introduce">
+          <div class="logo-worp">
+            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
+          </div>
+          <ul>
+            
+              <li><a href="/"> 首页 </a></li>
+            
+              <li><a href="/archives"> 归档 </a></li>
+            
+              <li><a href="/about"> 关于 </a></li>
+            
+              <li><a href="/atom.xml"> RSS </a></li>
+            
+            <li>
+              <img id="search-img" src="/images/search.svg" alt="search">
+            </li>
+          </ul>
+           
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何着手这个问题？"><span class="post-toc-number">2.</span> <span class="post-toc-text">如何着手这个问题？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分析问题，发掘优化点"><span class="post-toc-number">3.</span> <span class="post-toc-text">分析问题，发掘优化点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-lib目录优化"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1. lib目录优化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-res目录优化"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2.res目录优化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-assests目录优化"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3.assests目录优化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-META-INF目录"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">4.META-INF目录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-resources-arsc文件压缩"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">5.resources.arsc文件压缩</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-dex文件压缩"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">6.dex文件压缩</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">总结</span></a></li></ol> 
+          
+        </div>
+      </div>
+      <div id="main-right"><div id="post">
+    
+    <header class="article-header">
+        <h1>
+            APK瘦身-是时候给App进行减负了
+        </h1>
+    </header>
+    
+    <div class="post-meta">
+        <time class="post-data" datetime="2019-02-18T16:00:00.000Z" itemprop="datePublished">
+            2019-02-19
+        </time>
+        
+        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/Android/">Android</a><span class="post-category-list-count">1</span></li></ul>
+        
+        
+        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/性能优化-APK瘦身/">性能优化, APK瘦身</a><span class="post-tag-list-count">1</span></li></ul>
+        
+    </div>
+    
+    <div class="post-entry">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>APK瘦身即是对APK大小进行压缩策略，减小APK安装包大小，更小的安装包更有助于吸引用户安装。前一段时间我司某一App进行APK的瘦身，最终也达到了减小10M的目标，现做一个简单的总结记录。</p>
+<h3 id="如何着手这个问题？"><a href="#如何着手这个问题？" class="headerlink" title="如何着手这个问题？"></a>如何着手这个问题？</h3><p>需要对一个App进行瘦身，首先最重要的就是对App大小有一个大致的了解，最直观看到App的大小就是通过Android Studio自带的Analyzer进行APK的分析。使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、将一个apk拖动到Android Studio的编辑器窗口 </span><br><span class="line">2、在Project窗口中，双击build/output/apks/目录下的apk </span><br><span class="line">3、在菜单栏中选择选择Build &gt; Analyze APK，然后选择要分析的apk</span><br></pre></td></tr></table></figure>
+<p><img src="https://ae01.alicdn.com/kf/HTB180rja6LuK1Rjy0Fhq6xpdFXaK.jpg" alt="图1"></p>
+<p>获取如上图1所示的APK Size分析图之后，我们就可以针对这里面的目录进行针对性的优化。</p>
+<p>如图最上方所示的APK Size就是我们应用打包之后的大小，Download Size则是上传到Google Play之后，用户下载的大小。所以我们一般可以只针对前一项的APK Size进行对比。</p>
+<h3 id="分析问题，发掘优化点"><a href="#分析问题，发掘优化点" class="headerlink" title="分析问题，发掘优化点"></a>分析问题，发掘优化点</h3><p>从上图Analyzer可以发现，一个APK主要包含如下目录:</p>
+<ul>
+<li><strong>lib</strong>：包含了一些区分于处理器的编译代码，主要是SO文件，一般里面包含很多子目录，例如armeabi, armeabi-v7a, arm64-v8a, x86, x86_64, and mips。</li>
+<li><strong>res</strong>：包含了一些不会被编译到resources.arsc的资源文件。如drawable文件、layout文件等。</li>
+<li><strong>assets</strong>：包含了一些通过AssetManager能够检索到的资源。如MP3、字体、webp等资源文件。</li>
+<li><strong>META-INF</strong>：包含了CERT.SF和CERT.RSA签名文件，还有MANIFEST.MF文件。</li>
+</ul>
+<p>除此之外，还包含了如下的文件：</p>
+<ul>
+<li><p><strong>resources.arsc</strong>：包括了所有可以被编译的位于res/values/目录下的XML资源。打包工具在打包过程中会把XML的内容编译成二进制的形式，亦或者把相关资源的引用路径编译成二进制，然后整合到该文件里面。例如string文件、layout的路径、图片的路径等。</p>
+</li>
+<li><p><strong>classes.dex</strong>：包含了所有的Java文件编译后的class文件，class文件最终转化成该dex文件。一般文件都比较大，有的App有几个dex文件，这是因为单个DEX文件限制方法数在65536，所以当代码量过大时，就需要通过multiDex进行分包，拆分成多个dex文件，解决这个问题。</p>
+</li>
+<li><p><strong>AndroidManifest.xml</strong>：整合了多个module的AndroidMainifest文件的权限、声明等配置到该文件。</p>
+</li>
+</ul>
+<p>知道了APK的组成部分，那么我们就可以针对这些文件/文件夹进行针对性的优化，每个App都不一样，但是方法都是大同小异，本文讲述瘦身策略也是针对这些目录和文件进行优化，这样可以显得更加有条理性。</p>
+<h4 id="1-lib目录优化"><a href="#1-lib目录优化" class="headerlink" title="1. lib目录优化"></a>1. lib目录优化</h4><p>Android系统现在支持7种CPU架构，每一种都关联着对应的ABI（二进制接口，Application Binary Interface），而每一种ABI都定义了二进制文件（尤其是.so文件）如何运行在相应的系统平台上，从使用的指令集，内存对齐到可用的系统函数库等。所以如果我们的App需要适配不同的CPU架构的话，如下图2所示，就需要放入不同架构的文件夹下都放入不同的so文件，在打包时，这些so都会放在lib目录下。由此，如果我们想减小lib目录的大小，无非就如下一些常见的策略。</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1VgN2bcfrK1RjSszcq6xGGFXaY.jpg" alt="图2"></p>
+<ul>
+<li><strong>so裁剪、删除</strong></li>
+</ul>
+<p>对App引入的so文件进行确认哪些是不需要的，哪些是可以进行裁剪压缩的，哪些是可以避免引入的。例如如果引入的so需要下载上传功能而多引入了一个cURL库导致so增大，这时就可以让Java层代码定义接口，让so来调用，从而避免引入cURL库；再如Fresco库，如果不需要webP图，或者不需要webP动图功能，然后减少Fresco库的依赖，同样可以减小so的大小。</p>
+<ul>
+<li><strong>只保留armeabi或者armeabi-v7a</strong></li>
+</ul>
+<p>Android系统现在支持很多种CPU架构（如mips、arm、x86等），市面上主流机型都是arm架构，x86和mips类型极少。所以可以有选择地保留某些架构的so，从而降低lib文件夹的大小。但是我建议你在开始前先对用户手机的cpu型号进行一次统计，分析自身App对应架构手机的占有率，这样你才能大胆的进行操作，一般只保留armeabi或者armeabi-v7a即可。操作也是比较简单，只需要在根目录的build.gradle下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        ndk &#123;</span><br><span class="line">            abiFilters &quot;armeabi-v7a&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果你的App需要支持多种架构，那么就可以在<code>abiFilters</code>里面把多种架构加进去，当然你也可以只保留一种，然后分渠道打包，如Google Play就支持arm和x86等多个渠道打包。</p>
+<h4 id="2-res目录优化"><a href="#2-res目录优化" class="headerlink" title="2.res目录优化"></a>2.res目录优化</h4><p>res目录一般也是占APK Size大头的一个目录，如下图，这个目录一般都是图片资源占空间比较多，尤其当App为了适配多种分辨率而存放了多套图时，这时候就会导致res目录打下会非常大。而这个目录的优化方式也是比较多，下面就简单列举一下：</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1wAtZbovrK1RjSspc762zSXXam.png" alt="图3"></p>
+<ul>
+<li><strong>只保留一套图</strong></li>
+</ul>
+<p>因为Android设备在加载图片时会优先加载对应分辨率文件夹下的图片，如果对应分辨率文件下没有所要的图片，则找高分辨率对应文件夹下的图片。那是不是我们把图片放在最高分辨率的文件夹下就可以了呢？不是的！因为如果这样会导致低分辨率手机加载图片时会消耗更多的内存，而且是指数级别增长的，所以如果盲目地放在一个目录是不合适的。目前不同分辨率对应优先加载的文件夹中图片如下，如果是针对国内用户的App可以只保留xxhdpi目录，而如果是东南亚市场的App则可以只保留xhdpi。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">320*240        ldpi</span><br><span class="line"></span><br><span class="line">480*320        mdpi</span><br><span class="line"></span><br><span class="line">800*480        hdpi</span><br><span class="line"></span><br><span class="line">1280*720       xhdpi</span><br><span class="line"></span><br><span class="line">1920*1080      xxhdpi</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>非重要图片动态加载</strong></li>
+</ul>
+<p>针对一些非重要的图片，可以选择动态在线加载，严格来说，非首页的图片都可以动态加载，当然，为了提升用户体验，我们会把图片放在本地。但是，一些使用场景非常小或者大小较大的图片，大胆删掉，选择动态加载吧！</p>
+<ul>
+<li><strong>保真压缩图片</strong></li>
+</ul>
+<p>可以使用一些图片压缩网站或者工具压缩你的资源文件吧，例如TinyPng、ImageOptim、Zopfli、智图等。</p>
+<ul>
+<li><strong>使用webp替换png</strong></li>
+</ul>
+<p>如果你的App只支持Android4.0以上的话，可以把png格式的图片转为webp，相同画质下体积更小。</p>
+<ul>
+<li><strong>使用lint删除无用资源</strong></li>
+</ul>
+<p>在多人开发过程中，通常都会有漏删无用资源的问题，图片资源也不例外，例如需要删除一个模块的代码时，很容易就会漏删资源文件，所以可以定期使用lint检测出无用的资源文件，原理这里不作介绍，使用方法非常简单，可以直接在AS里面使用，如下图所示。注意：lint检查出来的资源都是无直接引用的，所以如果我们通过getIdentifier()方法引用文件时，lint也会标记为无引用，所以删除时注意不要删除通过getIdentifier()引用的资源。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Analyze -&gt; Run Inspection by Name -&gt; 输入：Unused resources -&gt; 跳出弹框选择范围即可</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>打开shrinkResources</strong></li>
+</ul>
+<p>shrinkResources是在编译过程中用来检测并删除无用资源文件，也就是没有引用的资源，minifyEnabled 这个是用来开启删除无用代码，比如没有引用到的代码，所以如果需要知道资源是否被引用就要配合minifyEnabled使用，只有两者都为true时才会起到真正的删除无效代码和无引用资源的目的。打开方式也是非常简单，在build.gralde文件里面打开即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    buildTypes&#123;</span><br><span class="line">        minifyEnabled true</span><br><span class="line">        shrinkResources true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-assests目录优化"><a href="#3-assests目录优化" class="headerlink" title="3.assests目录优化"></a>3.assests目录优化</h4><p>assests目录存放的通常是一些通过AssetManager能够检索到的资源，包括MP3、视频、字体、webp的资源，各个App存放内容都很大不相同，列举一些常用的优化方案。</p>
+<ul>
+<li><strong>删除无用字体</strong></li>
+</ul>
+<p>中文字体一般都比较大，因为字体文件包含了中文好几千个汉字，但是我们实际上在App中并不会全部都使用，甚至我们只用到其中的几个字，这时候我们就可以把字体文件进行删减，在Github上面有一个字体提取工具<a href="https://github.com/forJrking/FontZip" target="_blank" rel="noopener">FontZip</a>，使用方法也是非常简单，有兴趣可以去star一下。</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1_rzobinrK1Rjy1Xc5jaeDVXaI.gif" alt="图4"></p>
+<ul>
+<li><strong>动态下载</strong></li>
+</ul>
+<p>一些MP3、视频、Webp等资源可以在使用到时再进行下载，不需要放在本地。</p>
+<ul>
+<li><strong>对资源进行压缩</strong></li>
+</ul>
+<p>一些MP3、视频、Webp等资源如果必须放在本地，可以压缩成zip文件或者使用7zip进行压缩，在使用到时再进行解压，减小空间的占用。</p>
+<h4 id="4-META-INF目录"><a href="#4-META-INF目录" class="headerlink" title="4.META-INF目录"></a>4.META-INF目录</h4><p>该目录下的MANIFEST.MF、CERT.SF、INDEX.LIST、CERT.RSA等文件主要是存放一些APK文件加密后的信息，用以校验APK的完整性和安全性，这个目录没有太好的优化方式，而且文件一般也比较小，不会超过1M。</p>
+<h4 id="5-resources-arsc文件压缩"><a href="#5-resources-arsc文件压缩" class="headerlink" title="5.resources.arsc文件压缩"></a>5.resources.arsc文件压缩</h4><p>这个文件包含所有可以被编译的位于res/values/目录下的XML资源，如下图5所示是淘宝APK的resources.arsc文件，像图片的引用名字、layout文件的引用名字、string资源等都被编译到了这个文件里面。</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1oFYFHgHqK1RjSZFE763GMXXaR.png" alt="图5"></p>
+<p>所以如果我们需要对resources.arsc文件进行优化，无非就是对路径名字进行混淆，删除无用的资源映射，前者可以使用AndResGuard，后者可以使用lint等进行检测。</p>
+<ul>
+<li><strong>删除无用的语言</strong></li>
+</ul>
+<p>大部分应用都不需要支持几十种上百种语言，所以在我们引用一些第三方库时（如Google、Facebook的库），它们往往带有上百种多语言资源，而大部分多语言对于我们自己的应用是没有用处的，我们只需要在<code>build.gralde</code>里面进行如下配置即可完成无用语言资源的删除，这样在打包的时候就会排除私有项目、android系统库和第三方库中非中文的资源文件了，效果还是比较显著的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    //...</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        // 只保留中文</span><br><span class="line">        resConfigs &quot;zh&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>使用AndResGuard压缩</strong></li>
+</ul>
+<p><a href="https://github.com/shwenzhang/AndResGuard" target="_blank" rel="noopener">AndResGuard</a>是一个帮助你缩小APK大小的工具，他的原理类似Java Proguard，但是只针对资源。他会将原本冗长的资源路径变短，例如将res/drawable/wechat变为r/d/a。详细使用方法参照Github，很简单有效地减小resources.arsc文件大小。如下图6和图7所示，图6是压缩前的效果，图7是压缩完的效果，如果是资源比较多的App，压缩效果也是立竿见影。</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1G__HbjDuK1RjSszd760GLpXa9.png" alt="图6"><br><img src="https://ae01.alicdn.com/kf/HTB1iLbKbjzuK1RjSspp760z0XXaq.png" alt="图7"></p>
+<p>使用方法也是非常简单，在<code>build.gradle</code>文件中进行如下配置即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">andResGuard &#123;</span><br><span class="line">    mappingFile = null</span><br><span class="line">    use7zip = true</span><br><span class="line">    useSign = true</span><br><span class="line">    keepRoot = false</span><br><span class="line">    whiteList = [</span><br><span class="line">        //for your icon</span><br><span class="line">        &quot;R.drawable.icon&quot;,</span><br><span class="line">        //for fabric</span><br><span class="line">        &quot;R.string.com.crashlytics.*&quot;,</span><br><span class="line">        //for umeng update</span><br><span class="line">        &quot;R.string.umeng*&quot;,</span><br><span class="line">        &quot;R.string.UM*&quot;,</span><br><span class="line">        &quot;R.layout.umeng*&quot;,</span><br><span class="line">        &quot;R.drawable.umeng*&quot;,</span><br><span class="line">        //umeng share for sina</span><br><span class="line">        &quot;R.drawable.sina*&quot;</span><br><span class="line">    ]</span><br><span class="line">    compressFilePattern = [</span><br><span class="line">        &quot;*.png&quot;,</span><br><span class="line">        &quot;*.jpg&quot;,</span><br><span class="line">        &quot;*.jpeg&quot;,</span><br><span class="line">        &quot;*.gif&quot;,</span><br><span class="line">        &quot;resources.arsc&quot;</span><br><span class="line">    ]</span><br><span class="line">     sevenzip &#123;</span><br><span class="line">         artifact = &apos;com.tencent.mm:SevenZip:1.1.9&apos;</span><br><span class="line">         //path = &quot;/usr/local/bin/7za&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6-dex文件压缩"><a href="#6-dex文件压缩" class="headerlink" title="6.dex文件压缩"></a>6.dex文件压缩</h4><p>Dalvik是Android平台运行时的环境，但是Dalvik虚拟不支持直接执行Java的字节码，所以会对编译生成的 .class 文件进行翻译、重构、解释、压缩等处理，这个处理过程是由 dx 进行处理，处理完成后生成的产物会以 .dex 结尾，称为Dex文件。</p>
+<p>像淘宝、微信这些App，如果我们分析它们的APK可以发现，它们有多个Dex文件，如下图8所示，这是因为单个Dalvik Excutable（DEX）字节码文件内的方法数不可以超过65536个，所以需要DEX分包配置来避免这个限制，使应用能够构建并读取DEX文件。</p>
+<p><img src="https://ae01.alicdn.com/kf/HTB1CvjLbojrK1RkHFNRq6ySvpXaC.jpg" alt="图8"></p>
+<ul>
+<li><strong>Proguard代码混淆</strong></li>
+</ul>
+<p>Proguard是一款免费的Java类文件压缩器、优化器和混淆器，Android Studio已经集成了这个工具，只要经过简单的配置，即可完成，如下代码所示，在build.gradle里面设置<code>minifyEnabled</code>为ture，同时在<code>proguardFiles</code>指向proguard的规则文件即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    buildTypes&#123;</span><br><span class="line">        minifyEnabled true</span><br><span class="line">        proguardFiles &apos;proguard.cfg&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>App瘦身是一个长期的过程，建议可以进行每个版本对APK大小进行监控，列出增加和减小的点，做到持续的统计和追踪，从而给公司带来效益。</p>
+
+    </div>
+</div></div>
+    </div>
+    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
+    <img id="top" src="/images/up-circle.svg" alt="top">
+    
+  </body>
+</html>
+<!-- 加载主题脚本文件 -->
+<script src="/scripts/utone.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+    scroll.init()
+    siteSearch.init()
+  }
+</script>
