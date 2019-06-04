@@ -1,67 +1,143 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="baidu-site-verification" content="vvVgSQUzPU">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
-    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="三月桃花，两人一马，明日天涯！">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
     <title>
-       用RecyclerView做一个小清新的Gallery效果 -  特雷西多士
+        
+        用RecyclerView做一个小清新的Gallery效果 - undefined
+        
     </title>
-    <link rel="stylesheet" href="/css/style.css"> 
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 热血码农 </i>
+</div>
+
+<div class="index-container">
     
-      <link rel="icon" href="/images/favicon.ico">
-    
-  </head>
-  <body>
-    <div id="container">
-      <div id="main-left">
-        <div id="introduce">
-          <div class="logo-worp">
-            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
-          </div>
-          <ul>
-            
-              <li><a href="/"> 首页 </a></li>
-            
-              <li><a href="/archives"> 归档 </a></li>
-            
-              <li><a href="/about"> 关于 </a></li>
-            
-              <li><a href="/atom.xml"> RSS </a></li>
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/">
+        </div>
+        <div class="name">
+            <i>RyanLee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
             
             <li>
-              <img id="search-img" src="/images/search.svg" alt="search">
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
             </li>
-          </ul>
-           
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、实现思路"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、实现思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-每一次滑动都让图片保持在正中间"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">(1) 每一次滑动都让图片保持在正中间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-第一张图片的左边距和最后一张的右边距需要保持和其他照片的左右边距一样"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">(2) 第一张图片的左边距和最后一张的右边距需要保持和其他照片的左右边距一样</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-滑动时，中间图片滑动到左边时从大变小，右边图片滑动到中间时从小变大"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">(3) 滑动时，中间图片滑动到左边时从大变小，右边图片滑动到中间时从小变大</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-背景实现高斯模糊"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">(4)背景实现高斯模糊</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-滑动结束时背景有一个渐变效果，从上一张图片淡入淡出到当前图片"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">(5)滑动结束时背景有一个渐变效果，从上一张图片淡入淡出到当前图片</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更多"><span class="post-toc-number">3.</span> <span class="post-toc-text">更多</span></a></li></ol> 
-          
-        </div>
-      </div>
-      <div id="main-right"><div id="post">
-    
-    <header class="article-header">
-        <h1>
-            用RecyclerView做一个小清新的Gallery效果
-        </h1>
-    </header>
-    
-    <div class="post-meta">
-        <time class="post-data" datetime="2017-12-14T16:00:00.000Z" itemprop="datePublished">
-            2017-12-15
-        </time>
-        
-        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
-        
-        
-        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/RecyclerView/">RecyclerView</a><span class="post-tag-list-count">1</span></li></ul>
-        
+            
+        </ul>
     </div>
     
-    <div class="post-entry">
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、简介"><span class="toc-text">一、简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实现思路"><span class="toc-text">二、实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-每一次滑动都让图片保持在正中间"><span class="toc-text">(1) 每一次滑动都让图片保持在正中间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-第一张图片的左边距和最后一张的右边距需要保持和其他照片的左右边距一样"><span class="toc-text">(2) 第一张图片的左边距和最后一张的右边距需要保持和其他照片的左右边距一样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-滑动时，中间图片滑动到左边时从大变小，右边图片滑动到中间时从小变大"><span class="toc-text">(3) 滑动时，中间图片滑动到左边时从大变小，右边图片滑动到中间时从小变大</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-背景实现高斯模糊"><span class="toc-text">(4)背景实现高斯模糊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-滑动结束时背景有一个渐变效果，从上一张图片淡入淡出到当前图片"><span class="toc-text">(5)滑动结束时背景有一个渐变效果，从上一张图片淡入淡出到当前图片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多"><span class="toc-text">更多</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 热血码农 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        用RecyclerView做一个小清新的Gallery效果
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2017-12-15 00:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#RecyclerView" title="RecyclerView">RecyclerView</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
         <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>RecyclerView现在已经是越来越强大，且不说已经被大家用到滚瓜烂熟的代替ListView的基础功能，现在RecyclerView还可以取代ViewPager实现Banner效果，当然，以下做的小清新的Gallery效果也是类似于一些轮播图的效果，如下图所示，这其中使用到了24.2.0版本后RecyclerView增加的SnapHelper这个辅助类，在实现以下效果起来也是非常简单。所以这也是为什么RecyclerView强大之处，因为Google一直在对RecyclerView不断地进行更新补充，从而它内部的API也是越来越丰富。</p>
 <p><img src="https://user-gold-cdn.xitu.io/2017/12/13/1604f61b7219464a?w=201&amp;h=358&amp;f=gif&amp;s=3031397" alt="小清新的Gallery水平滑动效果"></p>
 <p><img src="https://user-gold-cdn.xitu.io/2017/12/13/1604f61b781841cc?w=206&amp;h=366&amp;f=gif&amp;s=2045166" alt="小清新的Gallery垂直滑动效果"></p>
@@ -317,20 +393,63 @@ mTSDraCacheMap.put(KEY_PRE_DRAW, resBlurDrawable);
 </code></pre><h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><p>以上所讲的都是实现的一个思路，虽然效果和小清新搭不上关系哈，但是配了几张小清新的图片还是让我们的程序员生活增添一丝精彩。其实大家实现了基础效果之后，还可以深挖更多辅助功能，例如不同的切换效果，支持横屏，动态修改滑动速度等，相信这个过程可以让你收获良多。</p>
 <p>Github：<a href="https://github.com/ryanlijianchang/Recyclerview-Gallery" target="_blank" rel="noopener">Recyclerview-Gallery</a></p>
 
-    </div>
-</div></div>
-    </div>
-    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
-    <img id="top" src="/images/up-circle.svg" alt="top">
-    
-  </body>
-</html>
-<!-- 加载主题脚本文件 -->
-<script src="/scripts/utone.js"></script>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-<script type="text/javascript">
-  window.onload = function() {
-    scroll.init()
-    siteSearch.init()
-  }
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
 </script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

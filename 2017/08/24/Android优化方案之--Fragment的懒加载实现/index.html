@@ -1,67 +1,143 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="baidu-site-verification" content="vvVgSQUzPU">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
-    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="三月桃花，两人一马，明日天涯！">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
     <title>
-       Android优化方案之--Fragment的懒加载实现 -  特雷西多士
+        
+        Android优化方案之--Fragment的懒加载实现 - undefined
+        
     </title>
-    <link rel="stylesheet" href="/css/style.css"> 
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 热血码农 </i>
+</div>
+
+<div class="index-container">
     
-      <link rel="icon" href="/images/favicon.ico">
-    
-  </head>
-  <body>
-    <div id="container">
-      <div id="main-left">
-        <div id="introduce">
-          <div class="logo-worp">
-            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
-          </div>
-          <ul>
-            
-              <li><a href="/"> 首页 </a></li>
-            
-              <li><a href="/archives"> 归档 </a></li>
-            
-              <li><a href="/about"> 关于 </a></li>
-            
-              <li><a href="/atom.xml"> RSS </a></li>
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/">
+        </div>
+        <div class="name">
+            <i>RyanLee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
             
             <li>
-              <img id="search-img" src="/images/search.svg" alt="search">
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
             </li>
-          </ul>
-           
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、背景</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、实现Fragment懒加载"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、实现Fragment懒加载</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、根据实际用途使用懒加载"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、根据实际用途使用懒加载</span></a></li></ol> 
-          
-        </div>
-      </div>
-      <div id="main-right"><div id="post">
-    
-    <header class="article-header">
-        <h1>
-            Android优化方案之--Fragment的懒加载实现
-        </h1>
-    </header>
-    
-    <div class="post-meta">
-        <time class="post-data" datetime="2017-08-24T08:56:29.000Z" itemprop="datePublished">
-            2017-08-24
-        </time>
-        
-        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
-        
-        
-        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/Fragment优化/">Fragment优化</a><span class="post-tag-list-count">1</span></li></ul>
-        
+            
+        </ul>
     </div>
     
-    <div class="post-entry">
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、背景"><span class="toc-text">一、背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、实现Fragment懒加载"><span class="toc-text">二、实现Fragment懒加载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、根据实际用途使用懒加载"><span class="toc-text">三、根据实际用途使用懒加载</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 热血码农 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Android优化方案之--Fragment的懒加载实现
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2017-08-24 16:56:29</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Fragment优化" title="Fragment优化">Fragment优化</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
         <h1 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h1><p>在Android应用中，ViewPager是我们不可避免使用的一个控件，因为它可以使我们在占用较少空间的同时，增强内容的丰富性，同时以其内部流淌着Google的血液，所以它几乎成了每一个App的标配控件。但是，假如ViewPager的每一个Fragment都需要通过网络拉取数据加载，而ViewPager是默认加载前两项的，所以在很容易造成网络丢包或者网络堵塞等问题，所以Fragment使用懒加载是非常有必要的。</p>
 <p>举个栗子：</p>
 <p><img src="http://onq81n53u.bkt.clouddn.com/s.jpg" alt="image"></p>
@@ -80,20 +156,63 @@
 <p>当然，如果你的网络请求并不需要涉及UI更新，那么就可以直接在<code>setUserVisibleHint(boolean isVisibleToUser)</code>里操作，所以最终还是要根据各自的实际用途来使用。</p>
 <p>最后，附上懒加载的Demo：<a href="https://github.com/ryanlijianchang/LazyFragment" target="_blank" rel="noopener">Github/LazyFragment</a></p>
 
-    </div>
-</div></div>
-    </div>
-    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
-    <img id="top" src="/images/up-circle.svg" alt="top">
-    
-  </body>
-</html>
-<!-- 加载主题脚本文件 -->
-<script src="/scripts/utone.js"></script>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-<script type="text/javascript">
-  window.onload = function() {
-    scroll.init()
-    siteSearch.init()
-  }
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
 </script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

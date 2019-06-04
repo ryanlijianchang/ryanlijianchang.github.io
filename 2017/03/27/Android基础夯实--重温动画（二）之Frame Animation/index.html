@@ -1,67 +1,143 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="baidu-site-verification" content="vvVgSQUzPU">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
-    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="三月桃花，两人一马，明日天涯！">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
     <title>
-       Android基础夯实--重温动画（二）之Frame Animation -  特雷西多士
+        
+        Android基础夯实--重温动画（二）之Frame Animation - undefined
+        
     </title>
-    <link rel="stylesheet" href="/css/style.css"> 
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 热血码农 </i>
+</div>
+
+<div class="index-container">
     
-      <link rel="icon" href="/images/favicon.ico">
-    
-  </head>
-  <body>
-    <div id="container">
-      <div id="main-left">
-        <div id="introduce">
-          <div class="logo-worp">
-            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
-          </div>
-          <ul>
-            
-              <li><a href="/"> 首页 </a></li>
-            
-              <li><a href="/archives"> 归档 </a></li>
-            
-              <li><a href="/about"> 关于 </a></li>
-            
-              <li><a href="/atom.xml"> RSS </a></li>
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/">
+        </div>
+        <div class="name">
+            <i>RyanLee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
             
             <li>
-              <img id="search-img" src="/images/search.svg" alt="search">
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
             </li>
-          </ul>
-           
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-number">2.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Demo"><span class="post-toc-number">3.</span> <span class="post-toc-text">Demo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果图"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">效果图</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码实现"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">代码实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Frame-Animation"><span class="post-toc-number">4.</span> <span class="post-toc-text">Frame Animation</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件位置"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">文件位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">语法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#标签"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">标签</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AnimationDrawable"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">AnimationDrawable</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#父类"><span class="post-toc-number">4.5.1.</span> <span class="post-toc-text">父类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#接口"><span class="post-toc-number">4.5.2.</span> <span class="post-toc-text">接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML文件中的变量"><span class="post-toc-number">4.5.3.</span> <span class="post-toc-text">XML文件中的变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.5.4.</span> <span class="post-toc-text">方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li></ol> 
-          
-        </div>
-      </div>
-      <div id="main-right"><div id="post">
-    
-    <header class="article-header">
-        <h1>
-            Android基础夯实--重温动画（二）之Frame Animation
-        </h1>
-    </header>
-    
-    <div class="post-meta">
-        <time class="post-data" datetime="2017-03-26T16:00:00.000Z" itemprop="datePublished">
-            2017-03-27
-        </time>
-        
-        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
-        
-        
-        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/动画/">动画</a><span class="post-tag-list-count">5</span></li></ul>
-        
+            
+        </ul>
     </div>
     
-    <div class="post-entry">
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#摘要"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Demo"><span class="toc-text">Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#效果图"><span class="toc-text">效果图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Frame-Animation"><span class="toc-text">Frame Animation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件位置"><span class="toc-text">文件位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AnimationDrawable"><span class="toc-text">AnimationDrawable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#父类"><span class="toc-text">父类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XML文件中的变量"><span class="toc-text">XML文件中的变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-text">方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 热血码农 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Android基础夯实--重温动画（二）之Frame Animation
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2017-03-27 00:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#动画" title="动画">动画</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
         <p><em>心灵鸡汤：天下事有难易乎，为之，则难者亦易矣；不为，则易者亦难矣。</em></p>
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>当你已经掌握了Tween Animation之后，再来看Frame Animation，你就会顿悟，喔，原来Frame Animation简单多了，那么恭喜你，你已经在Animation这条路上走得越来越远了，当你花十来分钟认真看完这篇文章，你就已经走完了动画这条小路的2/3。</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>我们都知道，在Android系统中，官方给我们提供了两种类型的动画：<strong>属性动画(Property Animation)</strong> 和 <strong>视图动画(View Animation)</strong>，而视图动画又包含了两种类型：补间动画(Tween animation) 和 帧动画(Frame animation)。</p>
@@ -141,20 +217,63 @@ public void onClick(View v) {
 </ul>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Frame Animation总体来说比较简单，通过XML的划分帧，在Java代码中获取到编译的AnimationDrawable，然后进行播放，难点不多，却是很多引导页的常用实现方法。</p>
 
-    </div>
-</div></div>
-    </div>
-    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
-    <img id="top" src="/images/up-circle.svg" alt="top">
-    
-  </body>
-</html>
-<!-- 加载主题脚本文件 -->
-<script src="/scripts/utone.js"></script>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-<script type="text/javascript">
-  window.onload = function() {
-    scroll.init()
-    siteSearch.init()
-  }
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
 </script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

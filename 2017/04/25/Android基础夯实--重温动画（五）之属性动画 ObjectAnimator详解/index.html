@@ -1,67 +1,143 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="baidu-site-verification" content="vvVgSQUzPU">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
-    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="三月桃花，两人一马，明日天涯！">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
     <title>
-       Android基础夯实--重温动画（五）之属性动画 ObjectAnimator详解 -  特雷西多士
+        
+        Android基础夯实--重温动画（五）之属性动画 ObjectAnimator详解 - undefined
+        
     </title>
-    <link rel="stylesheet" href="/css/style.css"> 
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 热血码农 </i>
+</div>
+
+<div class="index-container">
     
-      <link rel="icon" href="/images/favicon.ico">
-    
-  </head>
-  <body>
-    <div id="container">
-      <div id="main-left">
-        <div id="introduce">
-          <div class="logo-worp">
-            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
-          </div>
-          <ul>
-            
-              <li><a href="/"> 首页 </a></li>
-            
-              <li><a href="/archives"> 归档 </a></li>
-            
-              <li><a href="/about"> 关于 </a></li>
-            
-              <li><a href="/atom.xml"> RSS </a></li>
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/">
+        </div>
+        <div class="name">
+            <i>RyanLee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
             
             <li>
-              <img id="search-img" src="/images/search.svg" alt="search">
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
             </li>
-          </ul>
-           
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、摘要</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、-概述"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、 概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-差异"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">2.1 差异</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-propertyName"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2.2 propertyName</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-1-Scale"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">2.2.1 Scale</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-2-Translation"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">2.2.2 Translation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-3-Alpha"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">2.2.3 Alpha</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-4-Rotation"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">2.2.4 Rotation</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-5-图片变化"><span class="post-toc-number">2.2.5.</span> <span class="post-toc-text">2.2.5 图片变化</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-实例化ObjectAnimator方法"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2.3 实例化ObjectAnimator方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-1-ofInt"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">2.3.1 ofInt()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-2-ofFloat"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">2.3.2 ofFloat()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-3-ofArgb"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">2.3.3 ofArgb()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-4-ofPropertyValuesHolder"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">2.3.4 ofPropertyValuesHolder()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-4-其他实例化方法"><span class="post-toc-number">2.3.5.</span> <span class="post-toc-text">2.3.4 其他实例化方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">3.</span> <span class="post-toc-text">总结</span></a></li></ol> 
-          
-        </div>
-      </div>
-      <div id="main-right"><div id="post">
-    
-    <header class="article-header">
-        <h1>
-            Android基础夯实--重温动画（五）之属性动画 ObjectAnimator详解
-        </h1>
-    </header>
-    
-    <div class="post-meta">
-        <time class="post-data" datetime="2017-04-24T16:00:00.000Z" itemprop="datePublished">
-            2017-04-25
-        </time>
-        
-        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
-        
-        
-        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/动画/">动画</a><span class="post-tag-list-count">5</span></li></ul>
-        
+            
+        </ul>
     </div>
     
-    <div class="post-entry">
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、摘要"><span class="toc-text">一、摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、-概述"><span class="toc-text">二、 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-差异"><span class="toc-text">2.1 差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-propertyName"><span class="toc-text">2.2 propertyName</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-Scale"><span class="toc-text">2.2.1 Scale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-Translation"><span class="toc-text">2.2.2 Translation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-Alpha"><span class="toc-text">2.2.3 Alpha</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-Rotation"><span class="toc-text">2.2.4 Rotation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-5-图片变化"><span class="toc-text">2.2.5 图片变化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-实例化ObjectAnimator方法"><span class="toc-text">2.3 实例化ObjectAnimator方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-ofInt"><span class="toc-text">2.3.1 ofInt()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-ofFloat"><span class="toc-text">2.3.2 ofFloat()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-ofArgb"><span class="toc-text">2.3.3 ofArgb()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4-ofPropertyValuesHolder"><span class="toc-text">2.3.4 ofPropertyValuesHolder()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4-其他实例化方法"><span class="toc-text">2.3.4 其他实例化方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 热血码农 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Android基础夯实--重温动画（五）之属性动画 ObjectAnimator详解
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2017-04-25 00:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#动画" title="动画">动画</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
         <p><em>只有一种真正的英雄主义</em></p>
 <h1 id="一、摘要"><a href="#一、摘要" class="headerlink" title="一、摘要"></a>一、摘要</h1><p>ObjectAnimator是ValueAnimator的子类，它和ValueAnimator一样，同样具有计算属性值的功能，但对比ValueAnimator，它会更加容易使用，因为它不再需要设置监听器来监听值的变化，因为这个工程对于ObjectAnimator来说，是自动的。这篇文章主要通过详细讲解ObejctAniamtior，加深大家对属性动画的认识，让我们对于动画的技巧掌握得更扎实。</p>
 <p>如果你想了解更权威的解释，可以查看官方文档：<a href="https://developer.android.com/guide/topics/graphics/prop-animation.html#property-vs-view" target="_blank" rel="noopener">Property Animation</a>。</p>
@@ -175,20 +251,63 @@
 <p>在上面三个(2.3.1-2.3.3)不足以解决我们需求的时候，我们可以到官方文档参考这三个比较新的实例化方法，它们也是为了简化操作而进行了更高度的封装，所以这也有助于帮助我们用更少的代码来实现动画。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>ObjectAnimator作为ValueAnimator的子类，在代码上对ValueAnimator进行了进一步的封装，使我们在日常使用中更加简单，但是正是因为封装，使得我们在一些特殊情况下使用ObjectAnimator使用上还是有一定的局限性，所以在大家掌握了ValueAnimator和ObjectAnimator的基本使用后，还需要自己通过写小Demo来加深和进阶使用，这样在我们用到时方能得心应手。</p>
 
-    </div>
-</div></div>
-    </div>
-    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
-    <img id="top" src="/images/up-circle.svg" alt="top">
-    
-  </body>
-</html>
-<!-- 加载主题脚本文件 -->
-<script src="/scripts/utone.js"></script>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-<script type="text/javascript">
-  window.onload = function() {
-    scroll.init()
-    siteSearch.init()
-  }
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
 </script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

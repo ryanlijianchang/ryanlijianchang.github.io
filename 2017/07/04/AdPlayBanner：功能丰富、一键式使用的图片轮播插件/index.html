@@ -1,67 +1,143 @@
 <!DOCTYPE html>
-<html>
-  <head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="baidu-site-verification" content="vvVgSQUzPU">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="虎虎|博客|个人|utone|Utone|">
-    <meta name="description" content="骑士恨煎蛋，骑士恨孜然">
-    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="三月桃花，两人一马，明日天涯！">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
     <title>
-       AdPlayBanner：功能丰富、一键式使用的图片轮播插件 -  特雷西多士
+        
+        AdPlayBanner：功能丰富、一键式使用的图片轮播插件 - undefined
+        
     </title>
-    <link rel="stylesheet" href="/css/style.css"> 
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 热血码农 </i>
+</div>
+
+<div class="index-container">
     
-      <link rel="icon" href="/images/favicon.ico">
-    
-  </head>
-  <body>
-    <div id="container">
-      <div id="main-left">
-        <div id="introduce">
-          <div class="logo-worp">
-            <a href="/"><img class="logo" src="/images/logo.png" alt></a>
-          </div>
-          <ul>
-            
-              <li><a href="/"> 首页 </a></li>
-            
-              <li><a href="/archives"> 归档 </a></li>
-            
-              <li><a href="/about"> 关于 </a></li>
-            
-              <li><a href="/atom.xml"> RSS </a></li>
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/">
+        </div>
+        <div class="name">
+            <i>RyanLee</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
             
             <li>
-              <img id="search-img" src="/images/search.svg" alt="search">
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
             </li>
-          </ul>
-           
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AdPlayBanner"><span class="post-toc-number">1.</span> <span class="post-toc-text">AdPlayBanner</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、使用方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">一、使用方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-添加依赖"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1.添加依赖</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-在布局文件中添加控件"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2.在布局文件中添加控件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-在Activity中绑定控件"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3.在Activity中绑定控件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-添加网络权限"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">4.添加网络权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-初始化Fresco"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">5.初始化Fresco</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-一键式使用"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">6.一键式使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-关闭AdPlayBanner"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">7.关闭AdPlayBanner</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二、功能介绍"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">二、功能介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-自定义数据顺序"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.自定义数据顺序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-无限循环轮播"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2.无限循环轮播</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-支持三种图片加载方式"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3.支持三种图片加载方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-支持多种ScaleType"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">4.支持多种ScaleType</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-支持不同页码指示器"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">5.支持不同页码指示器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-添加灵活性标题"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">6.添加灵活性标题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-支持多样式切换动画"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">7.支持多样式切换动画</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-设置是否自动轮播"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">8.设置是否自动轮播</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-设置自动滑动间隔时间"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">9.设置自动滑动间隔时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#10-设置点击事件监听器"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">10.设置点击事件监听器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#11-关闭AdPlayBanner"><span class="post-toc-number">1.2.11.</span> <span class="post-toc-text">11.关闭AdPlayBanner</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三、API"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">三、API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#四、版本特性"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">四、版本特性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#v0-1"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">v0.1</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#V0-2"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">V0.2</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#V0-3"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">V0.3</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#五、-Demo"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">五、 Demo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#六、后记"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">六、后记</span></a></li></ol></li></ol> 
-          
-        </div>
-      </div>
-      <div id="main-right"><div id="post">
-    
-    <header class="article-header">
-        <h1>
-            AdPlayBanner：功能丰富、一键式使用的图片轮播插件
-        </h1>
-    </header>
-    
-    <div class="post-meta">
-        <time class="post-data" datetime="2017-07-03T16:00:00.000Z" itemprop="datePublished">
-            2017-07-04
-        </time>
-        
-        <ul class="post-category-list"><li class="post-category-list-item"><a class="post-category-list-link" href="/categories/学习/">学习</a><span class="post-category-list-count">9</span></li></ul>
-        
-        
-        <ul class="post-tag-list"><li class="post-tag-list-item"><a class="post-tag-list-link" href="/tags/图片轮播/">图片轮播</a><span class="post-tag-list-count">1</span></li></ul>
-        
+            
+        </ul>
     </div>
     
-    <div class="post-entry">
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AdPlayBanner"><span class="toc-text">AdPlayBanner</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、使用方法"><span class="toc-text">一、使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-添加依赖"><span class="toc-text">1.添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在布局文件中添加控件"><span class="toc-text">2.在布局文件中添加控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在Activity中绑定控件"><span class="toc-text">3.在Activity中绑定控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-添加网络权限"><span class="toc-text">4.添加网络权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-初始化Fresco"><span class="toc-text">5.初始化Fresco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-一键式使用"><span class="toc-text">6.一键式使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-关闭AdPlayBanner"><span class="toc-text">7.关闭AdPlayBanner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、功能介绍"><span class="toc-text">二、功能介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-自定义数据顺序"><span class="toc-text">1.自定义数据顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-无限循环轮播"><span class="toc-text">2.无限循环轮播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-支持三种图片加载方式"><span class="toc-text">3.支持三种图片加载方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-支持多种ScaleType"><span class="toc-text">4.支持多种ScaleType</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-支持不同页码指示器"><span class="toc-text">5.支持不同页码指示器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-添加灵活性标题"><span class="toc-text">6.添加灵活性标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-支持多样式切换动画"><span class="toc-text">7.支持多样式切换动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-设置是否自动轮播"><span class="toc-text">8.设置是否自动轮播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-设置自动滑动间隔时间"><span class="toc-text">9.设置自动滑动间隔时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-设置点击事件监听器"><span class="toc-text">10.设置点击事件监听器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-关闭AdPlayBanner"><span class="toc-text">11.关闭AdPlayBanner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、API"><span class="toc-text">三、API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、版本特性"><span class="toc-text">四、版本特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v0-1"><span class="toc-text">v0.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V0-2"><span class="toc-text">V0.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V0-3"><span class="toc-text">V0.3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、-Demo"><span class="toc-text">五、 Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、后记"><span class="toc-text">六、后记</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 热血码农 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        AdPlayBanner：功能丰富、一键式使用的图片轮播插件
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2017-07-04 00:00:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#图片轮播" title="图片轮播">图片轮播</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
         <h1 id="AdPlayBanner"><a href="#AdPlayBanner" class="headerlink" title="AdPlayBanner"></a>AdPlayBanner</h1><p><a href="https://github.com/ryanlijianchang/AdPlayBanner" target="_blank" rel="noopener">AdPlayBanner</a>是一个Android平台基于ViewPager实现的轮播图插件，主要用以自动或者手动地播放轮播图，提供了Fresco、Picasso、Glide等图片加载方式供用户使用，以及多种图片切换动画，设置轮播时间，设置数据源顺序，提供不同分页指示器等功能，实现了一键式、灵活式的控件使用方式。下面是效果图：</p>
 <p><img src="http://osjnd854m.bkt.clouddn.com/banner_pic1.gif" alt></p>
 <p>目前AdPlayBanner已经开源到了Github上面，大家可以在Github上面查看本控件的Demo，或者直接使用。</p>
@@ -435,20 +511,63 @@ mDatas.add(info3);
 <li>Github：<a href="https://github.com/ryanlijianchang" target="_blank" rel="noopener">https://github.com/ryanlijianchang</a></li>
 </ul>
 
-    </div>
-</div></div>
-    </div>
-    <div id="footer">凡心所向，素履所往，两人一马，明日天涯。</div>
-    <img id="top" src="/images/up-circle.svg" alt="top">
-    
-  </body>
-</html>
-<!-- 加载主题脚本文件 -->
-<script src="/scripts/utone.js"></script>
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-<script type="text/javascript">
-  window.onload = function() {
-    scroll.init()
-    siteSearch.init()
-  }
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.xml"
+    window.hexo_root = "/"
+    window.isPost = true
 </script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
