@@ -44,8 +44,8 @@
         
 <div class="nav" id="nav">
     <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/">
+        <div class="avatar radius">
+            <img src="/img/logo.png">
         </div>
         <div class="name">
             <i>RyanLee</i>
@@ -56,32 +56,32 @@
             <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li>
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
+                    <span>TAGS</span>
                 </a>
             </li>
             <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
+                    <span>ARCHIVES</span>
                 </a>
             </li>
             <li>
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
+                    <span>ABOUT</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
+                    <span>SEARCH</span>
                 </a>
             </li>
             
@@ -100,7 +100,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input">
-            <span id="begin-search">搜索</span>
+            <span id="begin-search">search</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -124,20 +124,20 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2017-08-24 16:56:29</span></span>
+        <span class="attr">Post：<span>2017-08-24 16:56:29</span></span>
         
-        <span class="attr">标签：/
+        <span class="attr">Tags：/
         
         <a class="tag" href="/tags/#Fragment优化" title="Fragment优化">Fragment优化</a>
         <span>/</span>
         
         
         </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
 
     </div>
-    <div class="post-content ">
+    <div class="post-content no-indent">
         <h1 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h1><p>在Android应用中，ViewPager是我们不可避免使用的一个控件，因为它可以使我们在占用较少空间的同时，增强内容的丰富性，同时以其内部流淌着Google的血液，所以它几乎成了每一个App的标配控件。但是，假如ViewPager的每一个Fragment都需要通过网络拉取数据加载，而ViewPager是默认加载前两项的，所以在很容易造成网络丢包或者网络堵塞等问题，所以Fragment使用懒加载是非常有必要的。</p>
 <p>举个栗子：</p>
 <p><img src="http://onq81n53u.bkt.clouddn.com/s.jpg" alt="image"></p>
@@ -204,7 +204,7 @@
 
 <script>
     // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.xml"
+    window.hexo_search_path = "search.json"
     window.hexo_root = "/"
     window.isPost = true
 </script>
@@ -214,5 +214,24 @@
 
 
 
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC8zMzEzMi85Njkx');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
 
 </html>

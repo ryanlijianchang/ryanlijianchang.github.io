@@ -44,8 +44,8 @@
         
 <div class="nav" id="nav">
     <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/">
+        <div class="avatar radius">
+            <img src="/img/logo.png">
         </div>
         <div class="name">
             <i>RyanLee</i>
@@ -56,32 +56,32 @@
             <li>
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li>
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
+                    <span>TAGS</span>
                 </a>
             </li>
             <li>
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
+                    <span>ARCHIVES</span>
                 </a>
             </li>
             <li>
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
+                    <span>ABOUT</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
+                    <span>SEARCH</span>
                 </a>
             </li>
             
@@ -100,7 +100,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input">
-            <span id="begin-search">搜索</span>
+            <span id="begin-search">search</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -124,20 +124,20 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2017-03-27 00:00:00</span></span>
+        <span class="attr">Post：<span>2017-03-27 00:00:00</span></span>
         
-        <span class="attr">标签：/
+        <span class="attr">Tags：/
         
         <a class="tag" href="/tags/#动画" title="动画">动画</a>
         <span>/</span>
         
         
         </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
 
     </div>
-    <div class="post-content ">
+    <div class="post-content no-indent">
         <p><em>心灵鸡汤：天下事有难易乎，为之，则难者亦易矣；不为，则易者亦难矣。</em></p>
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>当你已经掌握了Tween Animation之后，再来看Frame Animation，你就会顿悟，喔，原来Frame Animation简单多了，那么恭喜你，你已经在Animation这条路上走得越来越远了，当你花十来分钟认真看完这篇文章，你就已经走完了动画这条小路的2/3。</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>我们都知道，在Android系统中，官方给我们提供了两种类型的动画：<strong>属性动画(Property Animation)</strong> 和 <strong>视图动画(View Animation)</strong>，而视图动画又包含了两种类型：补间动画(Tween animation) 和 帧动画(Frame animation)。</p>
@@ -265,7 +265,7 @@ public void onClick(View v) {
 
 <script>
     // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.xml"
+    window.hexo_search_path = "search.json"
     window.hexo_root = "/"
     window.isPost = true
 </script>
@@ -275,5 +275,24 @@ public void onClick(View v) {
 
 
 
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC8zMzEzMi85Njkx');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
 
 </html>
